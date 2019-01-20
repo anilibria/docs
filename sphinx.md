@@ -36,6 +36,13 @@ source mysql {
 index anilibria {
     source = mysql
     
+    # ё => е, э => е
+    # http://sphinxsearch.com/docs/current/conf-charset-table.html
+    # http://sphinxsearch.com/forum/view.html?id=7280 
+    charset_table = 0..9, A..Z->a..z, _, a..z, U+410..U+42C->U+430..U+44C, \
+    U+42E..U+42F->U+44E..U+44F, U+430..U+44C, U+44E..U+44F, \
+    U+0401->U+0435, U+0451->U+0435, U+042D->U+0435, U+044D->U+0435
+    
     # Cats => Cat
     # https://habr.com/post/147745/ 
     morphology = stem_enru, soundex
@@ -43,6 +50,7 @@ index anilibria {
     ondisk_attrs=1
     min_word_len = 3
     min_infix_len = 3
+    index_exact_words=1
       
     path = /var/lib/sphinxsearch/data/anilibria
 }
