@@ -47,10 +47,12 @@ index anilibria {
     # https://habr.com/post/147745/ 
     morphology = stem_enru, soundex
  
+	# https://habr.com/ru/post/147745/
     ondisk_attrs=1
     min_word_len = 3
     min_infix_len = 3
-    index_exact_words=1
+    expand_keywords = 1
+    index_exact_words = 1
       
     path = /var/lib/sphinxsearch/data/anilibria
 }
