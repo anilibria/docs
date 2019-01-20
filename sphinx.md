@@ -65,7 +65,3 @@ searchd {
 ```
 /etc/init.d/sphinxsearch start
 ```
-
-<hr/>
-
-https://github.com/anilibria/anilibria/blob/master/test/sphinx.php
