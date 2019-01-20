@@ -9,25 +9,28 @@ wget http://sphinxsearch.com/files/dicts/ru.pak -O /etc/sphinxsearch/dicts/ru.pa
 # nano /etc/sphinxsearch/sphinx.conf
 
 common {
-    lemmatizer_base = /etc/sphinxsearch/dicts
+	lemmatizer_base = /etc/sphinxsearch/dicts
 }
-
 
 source mysql {
     type = mysql
     sql_host = localhost
-    sql_user = user
-    sql_pass = secret
-    sql_db = base
+    sql_user = anilibria
+    sql_pass = anilibria
+    sql_db = anilibria
 
-    # Sphinx return empty result on cyrillic query
-    # http://sphinxsearch.com/forum/view.html?id=11176
-    sql_query_pre = SET NAMES utf8
+	# Sphinx return empty result on cyrillic query
+	# http://sphinxsearch.com/forum/view.html?id=11176
+	sql_query_pre = SET NAMES utf8
 
-    sql_query_range = select min(id), max(id) from `page`
+    sql_query_range = select min(id), max(id) from `xrelease`
     sql_range_step = 2048
 
-    sql_query = select id, name, ename, genre, voice, season, year from `page` where id >= $start and id <= $end
+    sql_query = select id, name, ename, genre, year, last, rating from `xrelease` where id >= $start and id <= $end
+    
+    # http://sphinxsearch.com/forum/view.html?id=15403
+    sql_attr_uint = last
+    sql_attr_uint = rating
 }
 
 index anilibria {
@@ -45,8 +48,8 @@ index anilibria {
 }
 
 searchd {
-    listen			= localhost:9312
-    listen			= localhost:9306:mysql41
+	listen			= localhost:9312
+	listen			= localhost:9306:mysql41
     log = /var/log/sphinxsearch/searchd.log
     query_log = /var/log/sphinxsearch/query.log
     pid_file = /var/run/sphinxsearch/searchd.pid
