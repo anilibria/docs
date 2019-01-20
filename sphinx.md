@@ -43,7 +43,6 @@ index anilibria {
     U+42E..U+42F->U+44E..U+44F, U+430..U+44C, U+44E..U+44F, \
     U+0401->U+0435, U+0451->U+0435, U+042D->U+0435, U+044D->U+0435
     
-    # Cats => Cat
     # https://habr.com/post/147745/ 
     morphology = stem_enru, soundex
     ondisk_attrs=1
