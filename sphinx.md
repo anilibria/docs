@@ -9,7 +9,7 @@ wget http://sphinxsearch.com/files/dicts/ru.pak -O /etc/sphinxsearch/dicts/ru.pa
 # nano /etc/sphinxsearch/sphinx.conf
 
 common {
-	lemmatizer_base = /etc/sphinxsearch/dicts
+    lemmatizer_base = /etc/sphinxsearch/dicts
 }
 
 source mysql {
@@ -19,9 +19,9 @@ source mysql {
     sql_pass = anilibria
     sql_db = anilibria
 
-	# Sphinx return empty result on cyrillic query
-	# http://sphinxsearch.com/forum/view.html?id=11176
-	sql_query_pre = SET NAMES utf8
+    # Sphinx return empty result on cyrillic query
+    # http://sphinxsearch.com/forum/view.html?id=11176
+    sql_query_pre = SET NAMES utf8
 
     sql_query_range = select min(id), max(id) from `xrelease`
     sql_range_step = 2048
