@@ -1,10 +1,11 @@
-##### Примечание.
+### Примечание.
 * Тип поля указывается в [ ]
 * **?** – Обозначает Nullable или необязательное поле
 
 Посмотреть примеры ответов - https://test.anilibria.tv/test.php
 
-##### Базовая модель ответа.
+### Общие модели.
+#### Базовая модель ответа
 ```
 {
     "status": false,
@@ -23,7 +24,21 @@
  * message [string]**?** – Сообщение ошибки
  * description [string]**?** – Дополнительная информация, описание ошибки
  
-##### Релизы
+#### Модель пагинации
+```
+{  
+    "page":0,
+    "perPage":3,
+    "allPages":211,
+    "allItems":634
+}
+```
+* page[int] – Текущая страница
+* perPage[int] – Кол-во элементов на страница
+* allPages[int] – Кол-во всех страниц
+* allItems[int] – Кол-во всех элементов
+
+### Релизы
 URL
 ```
 <host>/public/api/index.php
@@ -51,17 +66,40 @@ query, id, code, filter, rm, page, perPage
 {"query":"release","id":"120211111"} – будет ошибка, 404
 {"query":"release","id":"1202"} – релиз по id
 {"query":"release","code":"sakurako-san-no-ashimoto-ni-wa-shitai-ga-umatteiru"} – релиз по code
+Ответ: 
+{
+    "status": true|false,
+    "data": {МОДЕЛЬ РЕЛИЗА}, 
+    "error": null|{}
+}
+
 
 Нужные релизы
 {"query":"info","id":"1202, 473"} - выведет два релиза, если найдёт
 {"query":"info","id":"1202, 473","filter":"description,torrent"} - будут только поля descriptin и torrent
 {"query":"info","id":"1202, 473","filter":"description,torrent","rm":""} - исключит поля descriptin и torrent
+Ответ: 
+{
+    "status": true,
+    "data": [МОДЕЛЬ РЕЛИЗА], 
+    "error": null
+}
+
 
 Список релизов
 {"query":"list","page":"1","perPage":"3"} - выведет 1 страницу с 3 релизами
+Ответ: 
+{
+    "status": true,
+    "data": {
+        "items": [МОДЕЛЬ РЕЛИЗА], 
+        "paginationt": {МОДЕЛЬ ПАГИНАЦИИ} 
+    }, 
+    "error": null
+}
 ```
 
-###### Модель релиза
+##### Модель релиза
 ```
 {  
     "id":1202,
@@ -103,7 +141,7 @@ query, id, code, filter, rm, page, perPage
 * series[string]**?** – Кол-во серий в релизе, используется при выводе списка релизов
 * poster[string]**?** – Относительны url на постер для списка
 * posterFull[string]**?** – Относительны url на постер для детального окна
-* favorite[object]**?** – "Модель избранного в релизе"
+* favorite[object]**?** – ["Модель избранного в релизе"](#user-content-модель-избранного-в-релизе)
 * last[???]**?** – По идеи должен быть timestamp последнего обновления релиза, но пока-что выводится его id и пока непонятно какого типа будет
 * moon[string]**?** – Ссылка на веб-плеер
 * status[string]**?** – Статус релиза (пока-что выводится просто цифра)
@@ -113,10 +151,10 @@ query, id, code, filter, rm, page, perPage
 * year[string]**?** – Год выпуска релиза
 * day[string]**?** – День недели, когда выходят новые серии
 * description[string]**?** – Описание релиза, может содержать html код
-* blockedInfo[object]**?** – "Модель блокировки"
-* playlist[array[object]]**?** – Список из "Модель серии"
-* torrents[array[object]]**?** – Список из "Модель торрента"
-###### Модель серии
+* blockedInfo[object]**?** – ["Модель блокировки"](#user-content-модель-релиза)
+* playlist[array[object]]**?** – Список из ["Модель серии"](#user-content-модель-серии)
+* torrents[array[object]]**?** – Список из ["Модель торрента"](#user-content-модель-торрента)
+##### Модель серии
 ```
 {  
     "id":12,
@@ -131,7 +169,7 @@ query, id, code, filter, rm, page, perPage
 * hd[string] – Ссылка на плейлист для онлайн плеера
 * srcSd[string]**?** - Ссылка на файл для скачивания (пока этого нет)
 * srcHd[string]**?** - Ссылка на файл для скачивания (пока этого нет)
-###### Модель торрента
+##### Модель торрента
 ```
 {  
     "id":977,
@@ -154,7 +192,7 @@ query, id, code, filter, rm, page, perPage
 * series[string] – Кол-во серий
 * size[long] – Размер файлов торрента, в байтах
 * url[string] – относительный путь до торрента. Вид ссылки может меняться
-###### Модель блокировки
+##### Модель блокировки
 ```
 {  
     "blocked":false,
@@ -163,7 +201,7 @@ query, id, code, filter, rm, page, perPage
 ```
 * blocked[boolean] – Релиз заблокирован (по авторскому праву или еще что, разные ситуации бывают)
 * reason[string]**?** – Причина блокировки
-###### Модель избранного в релизе
+##### Модель избранного в релизе
 ```
 {  
     "rating":421,
