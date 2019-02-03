@@ -35,7 +35,7 @@ systemctl status rc-local
 adduser anilibria
 ```
 4. <a href="https://github.com/anilibria/docs/blob/master/install/php73.md">PHP 7.3</a>
-5. Nginx
+5. <a href="https://github.com/anilibria/docs/blob/master/install/nginx.md">Nginx</a>
 
 ```
 mkdir /var/www/anilibria
