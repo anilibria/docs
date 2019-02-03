@@ -46,7 +46,7 @@ chown -R anilibria:www-data /var/www/anilibria
 ```
 
 6. Certbot
-7. phpMyAdmin
+7. <a href="https://github.com/anilibria/docs/blob/master/install/phpmyadmin.md">phpMyAdmin</a>
 8. <a href="https://github.com/anilibria/docs/blob/master/install/sphinx.md">Sphinx</a>
 9. <a href="https://github.com/anilibria/docs/blob/master/install/munin.md">Munin</a>
 10. <a href="https://github.com/anilibria/docs/blob/master/install/fail2ban.md">Fail2Ban</a>
