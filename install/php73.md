@@ -27,8 +27,6 @@ PHP 7.3
 Page generated in 0.0584 seconds. Peak memory usage: 2.85 MB
 ```
 
-<hr/>
-
 Тоже происходит, если запустить в цикле `Memcached::get()`
 ```php
 $count = $cache->get('apiInfo');
