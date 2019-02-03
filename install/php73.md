@@ -69,16 +69,31 @@ pm.max_requests = 1000
 
 chdir = /
 
-php_admin_value[error_log] = /var/www/anilibria/logs/php_error.log
-php_admin_flag[log_errors] = on
+php_admin_value[memory_limit] = 32M
+php_admin_value[max_execution_time] = 5
+php_admin_value[date.timezone] = "Europe/Moscow"
+php_admin_value[upload_max_filesize] = 4M
+php_admin_value[post_max_size] = 4M
+php_admin_value[display_errors] = Off
+php_admin_value[expose_php] = Off
 
+php_admin_value[error_log] = /var/www/anilibria/logs/php_error.log
+php_admin_flag[log_errors] = On
+php_admin_flag[report_memleaks] = On
+
+php_admin_value[opcache.enable] = 1
+php_admin_value[opcache.interned_strings_buffer] = 8
+php_admin_value[opcache.max_accelerated_files] = 4000
+
+php_admin_value[session.gc_probability] = 1
+php_admin_value[session.gc_divisor] = 1000
+php_admin_value[session.gc_maxlifetime] = 7200
+php_admin_value[session.entropy_length] = 256
+php_admin_value[session.hash_function] = sha512
+php_admin_value[session.hash_bits_per_character] = 6
+php_admin_value[session.use_only_cookies] = 1
 php_admin_value[session.save_handler] = memcached
 php_admin_value[session.save_path] = "/tmp/memcached.socket"
-php_admin_value[disable_functions] = "apache_setenv, chown, chgrp, closelog, define_syslog_variables, dl, exec, ftp_exec, openlog, passthru, pcntl_exec, popen, posix_getegid, posix_geteuid, posix_getpwuid, posix_kill, posix_mkfifo, posix_setpgid, posix_setsid, posix_setuid, posix_uname, proc_close, proc_get_status, proc_nice, proc_open, proc_terminate, syslog, system, pcntl_alarm, pcntl_fork, pcntl_waitpid, pcntl_wait, pcntl_wifexited, pcntl_wifstopped, pcntl_wifsignaled, pcntl_wexitstatus, pcntl_wtermsig, pcntl_wstopsig, pcntl_signal, pcntl_signal_dispatch, pcntl_get_last_error, pcntl_strerror, pcntl_sigprocmask, pcntl_sigwaitinfo, pcntl_sigtimedwait, pcntl_exec, pcntl_getpriority, pcntl_setpriority, shell_exec"
 
-php_admin_value[opcache.revalidate_freq] = 0
-php_admin_value[mbstring.internal_encoding] = UTF-8
-php_admin_value[mbstring.func_overload] = 2
-php_admin_value[realpath_cache_size] = 4096k
-php_admin_value[max_input_vars] = 10000
+php_admin_value[disable_functions] = "apache_setenv, chown, chgrp, closelog, define_syslog_variables, dl, exec, ftp_exec, openlog, passthru, pcntl_exec, popen, posix_getegid, posix_geteuid, posix_getpwuid, posix_kill, posix_mkfifo, posix_setpgid, posix_setsid, posix_setuid, posix_uname, proc_close, proc_get_status, proc_nice, proc_open, proc_terminate, syslog, system, pcntl_alarm, pcntl_fork, pcntl_waitpid, pcntl_wait, pcntl_wifexited, pcntl_wifstopped, pcntl_wifsignaled, pcntl_wexitstatus, pcntl_wtermsig, pcntl_wstopsig, pcntl_signal, pcntl_signal_dispatch, pcntl_get_last_error, pcntl_strerror, pcntl_sigprocmask, pcntl_sigwaitinfo, pcntl_sigtimedwait, pcntl_exec, pcntl_getpriority, pcntl_setpriority, shell_exec"
 ```
