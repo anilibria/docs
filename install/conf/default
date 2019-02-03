@@ -1,5 +1,5 @@
 server {
-	listen		443 ssl http2;
+	listen      443 ssl http2;
 	server_name anilibria.tv www.anilibria.tv;
 	ssl_certificate /etc/letsencrypt/live/anilibria.tv/fullchain.pem;
 	ssl_certificate_key /etc/letsencrypt/live/anilibria.tv/privkey.pem;
