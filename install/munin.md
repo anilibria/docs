@@ -35,8 +35,6 @@ chmod -R 755 /usr/share/munin/plugins/*
 ln -s /usr/share/munin/plugins/mysql_bytes /etc/munin/plugins/
 ln -s /usr/share/munin/plugins/mysql_connections /etc/munin/plugins/
 ln -s /usr/share/munin/plugins/mysql_connections_per_user /etc/munin/plugins/
-ln -s /usr/share/munin/plugins/mysql_qcache /etc/munin/plugins/
-ln -s /usr/share/munin/plugins/mysql_qcache_mem /etc/munin/plugins/
 ln -s /usr/share/munin/plugins/mysql_size_all /etc/munin/plugins/
 ln -s /usr/share/munin/plugins/mysql_innodb /etc/munin/plugins/
 ln -s /usr/share/munin/plugins/mysql_size_ondisk /etc/munin/plugins/
