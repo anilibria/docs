@@ -12,3 +12,4 @@
 12. <a href="https://github.com/anilibria/docs/blob/master/install/timezone.md">Timezone</a>
 13. KernelCare
 14. Onion
+15. <a href="https://github.com/anilibria/docs/blob/master/install/sysctl.md">Sysctl</a>
