@@ -6,6 +6,15 @@ apt-get --no-install-recommends install phpmyadmin
 
 <hr/>
 
+No activity within 1440 seconds; please log in again error.
+
+```
+# nano /etc/phpmyadmin/config.inc.php
+$cfg['LoginCookieValidity'] = 7200;
+```
+
+<hr/>
+
 Если phpmyadmin <a href="https://packages.debian.org/stretch/phpmyadmin">4.6.6</a> и php > 7.1 
 ```
 Warning in ./libraries/plugin_interface.lib.php#551
