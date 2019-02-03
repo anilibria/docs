@@ -2,6 +2,10 @@
 apt-get --no-install-recommends install phpmyadmin
 ```
 
+Доступен по ссылке https://www.anilibria.tv/phpmyadmin/
+
+<hr/>
+
 Если php > 7.1 
 ```
 Warning in ./libraries/plugin_interface.lib.php#551
