@@ -1,11 +1,14 @@
 ```
-apt-get install nginx-extras certbot
+apt-get install nginx-extras certbot apache2-utils
 mkdir /etc/nginx/ssl/
 openssl dhparam -out /etc/nginx/ssl/dhparam.pem 2048
 chown www-data:www-data /etc/nginx/ssl/dhparam.pem
 chmod 400 /etc/nginx/ssl/dhparam.pem
 mkdir /etc/nginx/lua
 wget -O /etc/nginx/lua/filter.lua https://raw.githubusercontent.com/anilibria/docs/master/install/conf/filter.lua
+htpasswd -c /etc/nginx/.htpasswd user
+chmod 400 /etc/nginx/.htpasswd
+chown www-data:www-data /etc/nginx/.htpasswd
 ```
 
 Получаем сертификат. Можно указать дополнительные поддомены `-d one.anilibria.tv`, `-d two.anilibria.tv`
