@@ -22,8 +22,8 @@ wget https://raw.githubusercontent.com/munin-monitoring/contrib/master/plugins/m
 wget https://raw.githubusercontent.com/munin-monitoring/contrib/master/plugins/nginx/nginx_memory
 
 # xbt_tracker
-wget https://raw.githubusercontent.com/poiuty/anilibria/master/munin/xbt_users
-wget https://raw.githubusercontent.com/poiuty/anilibria/master/munin/xbt_torrents
+wget https://raw.githubusercontent.com/anilibria/docs/master/install/munin/xbt_users
+wget https://raw.githubusercontent.com/anilibria/docs/master/install/munin/xbt_torrents
 ```
 
 Выставляем права.
