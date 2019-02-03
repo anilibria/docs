@@ -21,10 +21,6 @@ wget https://raw.githubusercontent.com/munin-monitoring/contrib/master/plugins/m
 # nginx
 wget https://raw.githubusercontent.com/munin-monitoring/contrib/master/plugins/nginx/nginx_memory
 
-# nginx proxy cache
-wget https://raw.githubusercontent.com/munin-monitoring/contrib/master/plugins/nginx/nginx-cache-hit-rate
-wget https://raw.githubusercontent.com/munin-monitoring/contrib/master/plugins/nginx/nginx-cache-multi_
-
 # xbt_tracker
 wget https://raw.githubusercontent.com/poiuty/anilibria/master/munin/xbt_users
 wget https://raw.githubusercontent.com/poiuty/anilibria/master/munin/xbt_torrents
@@ -56,10 +52,6 @@ ln -s /usr/share/munin/plugins/nginx_request /etc/munin/plugins/
 ln -s /usr/share/munin/plugins/nginx_status /etc/munin/plugins/
 ln -s /usr/share/munin/plugins/nginx_memory /etc/munin/plugins/
 
-# nginx proxy cache
-ln -s /usr/share/munin/plugins/nginx-cache-hit-rate /etc/munin/plugins/
-ln -s /usr/share/munin/plugins/nginx-cache-multi_ /etc/munin/plugins/nginx-cache-multi_number
-
 # xbt_tracker
 ln -s /usr/share/munin/plugins/xbt_users /etc/munin/plugins/
 ln -s /usr/share/munin/plugins/xbt_torrents /etc/munin/plugins/
@@ -68,41 +60,8 @@ ln -s /usr/share/munin/plugins/xbt_torrents /etc/munin/plugins/
 ```
 # nano /etc/munin/plugin-conf.d/munin-node
 [nginx*]
-user www-data
-env.logfile /var/log/nginx/cache-access.log
-env.url http://localhost/nginx_status
+env.url http://www.anilibria.tv/nginx_status
 env.ua nginx-status-verifier/0.1
-```
-
-Создаем конфиг.
-```
-# nano /etc/nginx/conf.d/munin.conf
-server {
-	listen 5.9.82.141:85;
-	keepalive_timeout 30;
-	root /var/cache/munin/www/;
-	location /munin/static/ {
-		alias /etc/munin/static/;
-	}
-	location ^~ /munin-cgi/munin-cgi-graph/ {
-		access_log off;
-		fastcgi_split_path_info ^(/munin-cgi/munin-cgi-graph)(.*);
-		fastcgi_param PATH_INFO $fastcgi_path_info;
-		fastcgi_pass unix:/var/run/munin/fcgi-graph.sock;
-		include fastcgi_params;
-	}
-}
-
-server {
-	listen 127.0.0.1;
-	server_name localhost;
-	location /nginx_status {
-		stub_status on;
-		access_log   off;
-		allow 127.0.0.1;
-		deny all;
-	}
-}
 ```
 
 Перезапускаем munin, nginx. Включаем spawn-fcgi.
@@ -115,6 +74,6 @@ spawn-fcgi -s /var/run/munin/fcgi-graph.sock -U www-data -u www-data -g www-data
 spawn-fcgi -s /var/run/munin/fcgi-graph.sock -U www-data -u www-data -g www-data /usr/lib/munin/cgi/munin-cgi-graph
 ```
 
-Проверяем статистику http://anilibria.tv:85
+Проверяем статистику http://www.anilibria.tv/munin/
 
 <img src="https://img.poiuty.com/img/bd/968a2fb8e630188af3ec2392aa1a3ebd.png">
