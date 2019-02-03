@@ -1,11 +1,12 @@
 1. Prepare
-2. Memcached
+2. <a href="https://github.com/anilibria/docs/blob/master/install/memcached.md">Memcached</a>
 3. MariaDB
-4. XBT Tracker
-5. PHP 7.3
+4. <a href="https://github.com/anilibria/docs/blob/master/install/xbt_tracker.md">XBT Tracker</a>
+5. <a href="https://github.com/anilibria/docs/blob/master/install/php73.md">PHP 7.3</a>
 6. Nginx 
 7. phpMyAdmin
-8. Sphinx
-9. Munin
-10. Fail2Ban
-11. AutoUpdate
+8. <a href="https://github.com/anilibria/docs/blob/master/install/sphinx.md">Sphinx</a>
+9. <a href="https://github.com/anilibria/docs/blob/master/install/munin.md">Munin</a>
+10. <a href="https://github.com/anilibria/docs/blob/master/install/fail2ban.md">Fail2Ban</a>
+11. <a href="https://github.com/anilibria/docs/blob/master/install/autoupdate.md">AutoUpdate</a>
+12. <a href="https://github.com/anilibria/docs/blob/master/install/timezone.md">Timezone</a>
