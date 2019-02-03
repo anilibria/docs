@@ -45,14 +45,13 @@ usermod -a -G www-data anilibria
 chown -R anilibria:www-data /var/www/anilibria
 ```
 
-6. Certbot
-7. <a href="https://github.com/anilibria/docs/blob/master/install/phpmyadmin.md">phpMyAdmin</a>
-8. <a href="https://github.com/anilibria/docs/blob/master/install/sphinx.md">Sphinx</a>
-9. <a href="https://github.com/anilibria/docs/blob/master/install/munin.md">Munin</a>
-10. <a href="https://github.com/anilibria/docs/blob/master/install/fail2ban.md">Fail2Ban</a>
-11. <a href="https://github.com/anilibria/docs/blob/master/install/autoupdate.md">AutoUpdate</a>
-12. <a href="https://github.com/anilibria/docs/blob/master/install/timezone.md">Timezone</a>
-13. KernelCare
-14. Onion
-15. <a href="https://github.com/anilibria/docs/blob/master/install/sysctl.md">Sysctl</a>
-16. <a href="https://github.com/anilibria/docs/blob/master/install/exim.md">Exim</a>
+6. <a href="https://github.com/anilibria/docs/blob/master/install/phpmyadmin.md">phpMyAdmin</a>
+7. <a href="https://github.com/anilibria/docs/blob/master/install/sphinx.md">Sphinx</a>
+8. <a href="https://github.com/anilibria/docs/blob/master/install/munin.md">Munin</a>
+9. <a href="https://github.com/anilibria/docs/blob/master/install/fail2ban.md">Fail2Ban</a>
+10. <a href="https://github.com/anilibria/docs/blob/master/install/autoupdate.md">AutoUpdate</a>
+11. <a href="https://github.com/anilibria/docs/blob/master/install/timezone.md">Timezone</a>
+12. KernelCare
+13. Onion
+14. <a href="https://github.com/anilibria/docs/blob/master/install/sysctl.md">Sysctl</a>
+15. <a href="https://github.com/anilibria/docs/blob/master/install/exim.md">Exim</a>
