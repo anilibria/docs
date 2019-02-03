@@ -4,7 +4,7 @@
 ```
 apt-get update
 apt-get upgrade
-apt-get install htop bwm-ng mc lsof fail2ban iotop sysstat net-tools
+apt-get install htop bwm-ng mc lsof fail2ban iotop sysstat net-tools curl
 ```
 
 1. <a href="https://github.com/anilibria/docs/blob/master/install/memcached.md">Memcached</a>
