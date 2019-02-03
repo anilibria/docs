@@ -1,8 +1,7 @@
 Установка.
 ```
-apt-get install memcached php-memcache
+apt-get install memcached
 ```
-
 
 Редактируем `/etc/memcached.conf`
 ```
