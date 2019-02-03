@@ -92,8 +92,7 @@ Munin плагины: <a href="https://github.com/icantbelieveitworks/docs/blob/
 
 <hr/>
 
-XBT Tracker not displaying seeders/leechers.
-После обновления MariaDB (5.5 => 10.2) трекер перестал обновлять seeders/leechers.
+После обновления MariaDB (5.5 => 10.2) трекер перестал обновлять seeders/leechers.<br/>
 Посмотрел <a href="https://github.com/OlafvdSpek/xbt/blob/e00c8416ffb90d23374b7e1909f6d15d5f685e62/Tracker/server.cpp#L296-L349">код</a>, проверил — что xbt подключается к базе, выполняет запросы.
 
 Включил логирование всех запросов.
