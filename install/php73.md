@@ -74,8 +74,8 @@ php_admin_value[max_execution_time] = 5
 php_admin_value[date.timezone] = "Europe/Moscow"
 php_admin_value[upload_max_filesize] = 4M
 php_admin_value[post_max_size] = 4M
-php_admin_value[display_errors] = Off
-php_admin_value[expose_php] = Off
+php_admin_flag[display_errors] = Off
+php_admin_flag[expose_php] = Off
 
 php_admin_value[error_log] = /var/www/anilibria/logs/php_error.log
 php_admin_flag[log_errors] = On
