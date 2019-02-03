@@ -74,6 +74,6 @@ spawn-fcgi -s /var/run/munin/fcgi-graph.sock -U www-data -u www-data -g www-data
 spawn-fcgi -s /var/run/munin/fcgi-graph.sock -U www-data -u www-data -g www-data /usr/lib/munin/cgi/munin-cgi-graph
 ```
 
-Проверяем статистику http://www.anilibria.tv/munin/
+Проверяем статистику https://www.anilibria.tv/munin/
 
 <img src="https://img.poiuty.com/img/bd/968a2fb8e630188af3ec2392aa1a3ebd.png">
