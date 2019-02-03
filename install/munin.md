@@ -11,8 +11,6 @@ cd /usr/share/munin/plugins
 # mysql
 wget https://raw.githubusercontent.com/munin-monitoring/contrib/master/plugins/mysql/mysql_size_ondisk
 wget https://raw.githubusercontent.com/munin-monitoring/contrib/master/plugins/mysql/mysql_size_all
-wget https://raw.githubusercontent.com/munin-monitoring/contrib/master/plugins/mysql/mysql_qcache_mem
-wget https://raw.githubusercontent.com/munin-monitoring/contrib/master/plugins/mysql/mysql_qcache
 wget https://raw.githubusercontent.com/munin-monitoring/contrib/master/plugins/mysql/mysql_connections_per_user
 wget https://raw.githubusercontent.com/munin-monitoring/contrib/master/plugins/mysql/mysql_connections
 wget https://raw.githubusercontent.com/munin-monitoring/contrib/master/plugins/mysql/mysql-table-size
