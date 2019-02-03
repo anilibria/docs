@@ -99,7 +99,7 @@ Munin плагины: <a href="https://github.com/icantbelieveitworks/docs/blob/
 ```
 # nano /etc/my/my.cnf
 general_log = on
-general_log_file= /var/log/mysql/full.log
+general_log_file = /var/log/mysql/full.log
 ```
 
 Выполняю запрос, получаю ошибку.
