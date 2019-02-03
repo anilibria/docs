@@ -35,6 +35,7 @@ chmod 640 /etc/exim4/dkim/*
 то `/etc/exim4/conf.d/transport/30_exim4-config_remote_smtp` добавляем
 
 ```
+### transport/30_exim4-config_remote_smtp
 DKIM_DOMAIN = ${lc:${domain:$h_from:}}
 DKIM_KEY_FILE = /etc/exim4/dkim/DKIM_DOMAIN.key
 DKIM_PRIVATE_KEY = ${if exists{DKIM_KEY_FILE}{DKIM_KEY_FILE}{0}}
