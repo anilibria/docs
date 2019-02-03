@@ -88,8 +88,6 @@ write db users time	4 / 10
 Если клиент не отправил запрос, сервер удаляет его из списка. Установим `announce_interval 60`.<br/>
 Количество пиров падает до `~30`. Думаю, хорошее значение `900~1800`.<br/>
 
-<img src="https://blog.poiuty.com/wp-content/uploads/2013/07/xbt_users-day.png">
-
 Munin плагины: <a href="https://github.com/icantbelieveitworks/docs/blob/master/lepus/munin/xbt_users">xbt_users</a>, <a href="https://github.com/icantbelieveitworks/docs/blob/master/lepus/munin/xbt_torrents">xbt_torrents</a>.
 
 <hr/>
