@@ -12,6 +12,14 @@ dpkg-reconfigure exim4-config
 > mbox format in /var/mail/
 > No
 > empty
+```
 
+Выключим ipv6. Открываем `/etc/exim4/exim4.conf.template` добавляем сразу перед `begin acl` добавляем.
+```
+disable_ipv6 = true
+```
+
+
+```
 /etc/init.d/exim4 restart
 ```
