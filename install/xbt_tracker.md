@@ -91,3 +91,43 @@ write db users time	4 / 10
 <img src="https://blog.poiuty.com/wp-content/uploads/2013/07/xbt_users-day.png">
 
 Munin плагины: <a href="https://github.com/icantbelieveitworks/docs/blob/master/lepus/munin/xbt_users">xbt_users</a>, <a href="https://github.com/icantbelieveitworks/docs/blob/master/lepus/munin/xbt_torrents">xbt_torrents</a>.
+
+<hr/>
+
+XBT Tracker not displaying seeders/leechers.
+После обновления MariaDB (5.5 => 10.2) трекер перестал обновлять seeders/leechers.
+Посмотрел <a href="https://github.com/OlafvdSpek/xbt/blob/e00c8416ffb90d23374b7e1909f6d15d5f685e62/Tracker/server.cpp#L296-L349">код</a>, проверил — что xbt подключается к базе, выполняет запросы.
+
+Включил логирование всех запросов.
+```
+# nano /etc/my/my.cnf
+general_log = on
+general_log_file= /var/log/mysql/full.log
+```
+
+Выполняю запрос, получаю ошибку.
+```
+insert into xbt_files (leechers, seeders, completed, fid) values (54,108,1692,3299),(39,53,1375,3297),(1,51,301,3295),(6,35,618,3287),(18,26,3376,3271),(4,39,3687,3241),(12,64,6650,3217),(12,42,4857,3212),(19,71,7624,3207),(8,78,5786,3198),(7,32,3443,3175),(8,40,5437,2777),(7,31,826,3292),(4,8,1758,2395),(9,38,15151,1999),(9,19,3673,759),(1,7,5813,2013),(1,12,3170,2417),(0,3,1485,1331),(3,38,2659,3195),(3,8,1600,1046),(1,10,3939,987),(6,36,6547,2403),(2,10,9300,1691),(3,17,641,3236),(4,15,7386,974),(3,18,1530,3250),(1,16,245,3242),(0,49,1603,3130),(2,13,1335,835),(17,47,3594,3238),(3,7,4232,1356),(4,10,2936,1780),(3,39,1496,3243),(0,69,1000,3272),(2,13,4959,1714),(1,72,950,3276),(1,14,7164,983),(12,34,1691,3237),(41,84,1422,3296),(24,40,5354,3279) on duplicate key update  leechers = values(leechers),  seeders = values(seeders),  completed = values(completed),  mtime = unix_timestamp()
+ 
+Field 'info_hash' doesn't have a default value
+```
+
+Проверяю sql mode.
+```
+MariaDB [(none)]> SELECT @@sql_mode;
++-------------------------------------------------------------------------------------------+
+| @@sql_mode                                                                                |
++-------------------------------------------------------------------------------------------+
+| STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION |
++-------------------------------------------------------------------------------------------+
+```
+
+Выключаю STRICT_TRANS_TABLES.
+```
+# nano /etc/my/my.cnf
+[mysqld]
+...
+sql_mode="ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
+ 
+# /etc/init.d/mysql restart
+```
