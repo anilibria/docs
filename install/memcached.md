@@ -18,9 +18,3 @@ logfile /var/log/memcached.log
 ```
 /etc/init.d/memcached restart
 ```
-
-Сохраняем <a href="http://php.net/manual/ru/memcached.sessions.php">php сессии в memcached</a>. Редактируем `/etc/php5/fpm/pool.d/anilibria.conf`
-```
-php_admin_value[session.save_handler] = memcache
-php_admin_value[session.save_path] = "unix:///tmp/memcached.socket:0"
-```
