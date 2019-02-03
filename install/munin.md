@@ -41,7 +41,6 @@ ln -s /usr/share/munin/plugins/mysql_size_ondisk /etc/munin/plugins/
 ln -s /usr/share/munin/plugins/mysql_slowqueries /etc/munin/plugins/
 ln -s /usr/share/munin/plugins/mysql_threads /etc/munin/plugins/
 ln -s /usr/share/munin/plugins/mysql_queries /etc/munin/plugins/
-ln -s /usr/share/munin/plugins/mysql_size_ondisk /etc/munin/plugins/
 
 # nginx
 ln -s /usr/share/munin/plugins/nginx_request /etc/munin/plugins/
