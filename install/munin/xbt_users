@@ -1,0 +1,28 @@
+#!/bin/sh
+# XBT Tracker users, munin plugin by poiuty
+# Thanks Sanasol & cx https://www.linux.org.ru/forum/admin/9400654
+ 
+URL="http://anilibria.tv:2710/st"
+ 
+if [ "$1" = "config" ]; then
+                echo 'graph_title XBT Tracker user stats'
+                echo 'graph_args --base 1000'          
+                echo 'graph_category XBT Tracker'
+                echo 'graph_info This graph shows the XBT Tracker Stats.'
+ 
+                echo 'graph_vlabel users'
+                echo 'peers.label peers'  
+                echo 'peers.info peers stats'
+ 
+                echo 'seeders.label seeders'      
+                echo 'seeders.info seeders stats'
+ 
+                echo 'leechers.label leechers'     
+                echo 'leechers.info leechers stats'
+ 
+                exit 0
+        fi
+ 
+curl -s --compressed $URL | sed -e 's,.*<tr><td>peers<td class=ar>\([^<]*\).*,\1,g' | xargs -r printf "peers.value %s\n"
+curl -s --compressed $URL | sed -e 's,.*<tr><td>seeders<td class=ar>\([^<]*\).*,\1,g' | xargs -r printf "seeders.value %s\n"
+curl -s --compressed $URL | sed -e 's,.*<tr><td>leechers<td class=ar>\([^<]*\).*,\1,g' | xargs -r printf "leechers.value %s\n"
