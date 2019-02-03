@@ -6,7 +6,7 @@ apt-get --no-install-recommends install phpmyadmin
 
 <hr/>
 
-Если php > 7.1 
+Если phpmyadmin 4.4.6 и php > 7.1 
 ```
 Warning in ./libraries/plugin_interface.lib.php#551
  count(): Parameter must be an array or an object that implements Countable
