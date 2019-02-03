@@ -1,3 +1,6 @@
+Все действия выполняются на Debian 9 minimal 64 bit.<br/>
+Конфиг сервера: 2x E5-2620 v4, 64GB DDR4, 2x 480GB SSD.<br/>
+
 1. Prepare
 2. <a href="https://github.com/anilibria/docs/blob/master/install/memcached.md">Memcached</a>
 3. <a href="https://github.com/anilibria/docs/blob/master/install/mariadb.md">MariaDB</a>
