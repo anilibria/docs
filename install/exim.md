@@ -23,3 +23,14 @@ disable_ipv6 = true
 ```
 /etc/init.d/exim4 restart
 ```
+
+<hr/>
+
+SPF запись + яндекс почта.
+
+```
+TXT    anilibria.tv        v=spf1 ip4:37.1.217.18 include:_spf.yandex.net ~all
+MX     anilibria.tv        mx.yandex.net  10
+CNAME  mail.anilibria.tv   domain.mail.yandex.net
+```
+
