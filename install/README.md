@@ -31,6 +31,9 @@ systemctl status rc-local
 1. <a href="https://github.com/anilibria/docs/blob/master/install/memcached.md">Memcached</a>
 2. <a href="https://github.com/anilibria/docs/blob/master/install/mariadb.md">MariaDB</a>
 3. <a href="https://github.com/anilibria/docs/blob/master/install/xbt_tracker.md">XBT Tracker</a>
+```
+adduser anilibria
+```
 4. <a href="https://github.com/anilibria/docs/blob/master/install/php73.md">PHP 7.3</a>
 5. Nginx
 
@@ -38,7 +41,6 @@ systemctl status rc-local
 mkdir /var/www/anilibria
 mkdir /var/www/anilibria/logs
 mkdir /var/www/anilibria/root
-adduser anilibria
 usermod -a -G www-data anilibria
 chown -R anilibria:www-data /var/www/anilibria
 ```
