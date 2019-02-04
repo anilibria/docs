@@ -32,8 +32,18 @@ systemctl status rc-local
 2. <a href="https://github.com/anilibria/docs/blob/master/install/mariadb.md">MariaDB</a>
 3. <a href="https://github.com/anilibria/docs/blob/master/install/xbt_tracker.md">XBT Tracker</a>
 ```
-adduser anilibria
+# adduser anilibria
+# nano /etc/ssh/sshd_config
+
+# override default of no subsystems
+Subsystem	sftp	/usr/lib/openssh/sftp-server
+
+# Disable ssh and sftp for users
+DenyUsers anilibria
+
+# systemctl restart sshd
 ```
+
 4. <a href="https://github.com/anilibria/docs/blob/master/install/php73.md">PHP 7.3</a>
 5. <a href="https://github.com/anilibria/docs/blob/master/install/nginx.md">Nginx</a>
 
