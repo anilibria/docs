@@ -60,8 +60,8 @@ index anilibria {
 }
 
 searchd {
-    listen			= localhost:9312
-    listen			= localhost:9306:mysql41
+    listen = localhost:9312
+    listen = localhost:9306:mysql41
     log = /var/log/sphinxsearch/searchd.log
     query_log = /var/log/sphinxsearch/query.log
     pid_file = /var/run/sphinxsearch/searchd.pid
