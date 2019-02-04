@@ -53,6 +53,7 @@ mkdir /var/www/anilibria/logs
 mkdir /var/www/anilibria/root
 usermod -a -G www-data anilibria
 chown -R anilibria:www-data /var/www/anilibria
+usermod -m -d /var/www/anilibria anilibria
 ```
 
 6. <a href="https://github.com/anilibria/docs/blob/master/install/phpmyadmin.md">phpMyAdmin</a>
