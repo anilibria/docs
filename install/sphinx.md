@@ -6,6 +6,11 @@ wget http://sphinxsearch.com/files/dicts/ru.pak -O /etc/sphinxsearch/dicts/ru.pa
 ```
 
 ```
+# nano /etc/default/sphinxsearch
+START=yes
+```
+
+```
 # nano /etc/sphinxsearch/sphinx.conf
 
 common {
