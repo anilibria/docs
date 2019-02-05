@@ -1,6 +1,6 @@
 ```
 [-] альтернативное название релиза
-[-] if access < 2 hide edit announce
+[+] if access < 2 hide edit announce
 [-] поля тайминг, оформление, перевод
 [-] работа над релизом link => open modal window
 [-] push if new youtube video
