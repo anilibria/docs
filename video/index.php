@@ -108,7 +108,7 @@ foreach($files as $file){
 			'file' => str_replace(['ts', 'videos/'], ['mp4', ''], $file),
 			'hd' => '//'.$host.'/'.$file.'/playlist.m3u8',
 			'sd' => '//'.$host.'/'.$file.'-sd/playlist.m3u8',
-			'new' => "[720p]//$host/$file/playlist.m3u8,[480p]//$host/$file-sd/playlist.m3u8",
+			'new' => "[720p]//{host}/$file/playlist.m3u8,[480p]//{host}/$file-sd/playlist.m3u8",
 		];
 	}
 }
