@@ -108,10 +108,13 @@ foreach($files as $file){
 			'file' => str_replace(['ts', 'videos/'], ['mp4', ''], $file),
 			'hd' => '//'.$host.'/'.$file.'/playlist.m3u8',
 			'sd' => '//'.$host.'/'.$file.'-sd/playlist.m3u8',
-			'new' => "[720p]//{host}/$file/playlist.m3u8,[480p]//{host}/$file-sd/playlist.m3u8",
+			'new' => "[720p]//$host/$file/playlist.m3u8,[480p]//$host/$file-sd/playlist.m3u8",
+			'new2' => "[720p]//{host}/$file/playlist.m3u8,[480p]//{host}/$file-sd/playlist.m3u8",
 		];
 	}
 }
 $links['updated'] = true;
-$links['online'] = $hosts;
+if(isset($_GET['v2'])){
+	$links['online'] = $hosts;
+}
 echo json_encode(array_reverse($links, true));
