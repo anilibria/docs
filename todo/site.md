@@ -5,7 +5,7 @@
 [-] работа над релизом link => open modal window
 [-] push if new youtube video
 [-] og tags + desc + img
-[-] remove download from playerjs (we have torrent for download on site)
+[+] remove download from playerjs (we have torrent for download on site)
 [+] if access > 1 bind session to ip
 [-] video links
 ```
