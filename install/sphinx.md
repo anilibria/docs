@@ -31,7 +31,7 @@ source mysql {
     sql_query_range = select min(id), max(id) from `xrelease`
     sql_range_step = 2048
 
-    sql_query = select id, name, ename, genre, year, last, rating from `xrelease` where id >= $start and id <= $end
+    sql_query = select id, name, ename, aname, genre, year, last, rating from `xrelease` where id >= $start and id <= $end
     
     # http://sphinxsearch.com/forum/view.html?id=15403
     sql_attr_uint = last
