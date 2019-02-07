@@ -66,3 +66,4 @@ usermod -m -d /var/www/anilibria anilibria
 13. Onion
 14. <a href="https://github.com/anilibria/docs/blob/master/install/sysctl.md">Sysctl</a>
 15. <a href="https://github.com/anilibria/docs/blob/master/install/exim.md">Exim</a>
+16. <a href="https://github.com/anilibria/docs/blob/master/install/pure-ftpd.md">Pure-FTPd</a>
