@@ -8,4 +8,7 @@
 [+] remove download from playerjs (we have torrent for download on site)
 [+] if access > 1 bind session to ip
 [+] video links
+[-] block by country
+[-] алфавитный указатель
+[-] порядок просмотра
 ```
