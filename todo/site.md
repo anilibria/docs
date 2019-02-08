@@ -11,4 +11,6 @@
 [-] block by country
 [-] алфавитный указатель
 [-] порядок просмотра
+[-] upload avatar show error
+[-] add message change email, passwd
 ```
