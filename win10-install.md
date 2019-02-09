@@ -20,6 +20,11 @@ Windows 10 версии 17134 и выше
 ![Версия системы](https://github.com/anilibria/anilibria-win/blob/master/doc/assets/appinstaller.jpg?raw=true)  
 Если приложения там нет то перейдите в Windows Store и установите его по [этой ссылке](https://www.microsoft.com/en-us/p/app-installer/9nblggh4nns1).
 
+### Включение возможности установки приложений из любых источников (sideloading)
+
+Для этого необходимо в меню пуск нажать на шестеренку в левом нижнем углу далее перейти в **Обновление и безопастность** -> **Для разработчиков**. Выбрать в разделе **Использование функций разработчика** опцию **Неопубликованные приложения**.  
+![Настройка](https://github.com/anilibria/anilibria-win/blob/master/doc/assets/settingssideload.jpg?raw=true)
+
 ### Скачивание версии
 
 Переходим на страницу с релизами https://github.com/anilibria/anilibria-win/releases
