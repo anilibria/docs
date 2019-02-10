@@ -70,9 +70,14 @@ tmp_table_size = 256M
 max_heap_table_size = 256M
 
 # Cache settings
+query_cache_type = 1
+query_cache_limit = 256K
+query_cache_size = 32M
+
 # Try off https://community.centminmod.com/threads/mysqltuner.6779/
-query_cache_type = 0 # for OFF
-query_cache_size = 0 # to ensure QC is NOT USED
+#query_cache_type = 0 # for OFF
+#query_cache_size = 0 # to ensure QC is NOT USED
+
 
 # Slowlog settings
 slow_query_log = 1
