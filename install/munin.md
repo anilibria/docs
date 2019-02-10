@@ -15,6 +15,8 @@ wget https://raw.githubusercontent.com/munin-monitoring/contrib/master/plugins/m
 wget https://raw.githubusercontent.com/munin-monitoring/contrib/master/plugins/mysql/mysql_connections
 wget https://raw.githubusercontent.com/munin-monitoring/contrib/master/plugins/mysql/mysql-table-size
 wget https://raw.githubusercontent.com/munin-monitoring/contrib/master/plugins/mysql/mysql-schema-size
+wget https://raw.githubusercontent.com/munin-monitoring/contrib/master/plugins/mysql/mysql_qcache_mem
+wget https://raw.githubusercontent.com/munin-monitoring/contrib/master/plugins/mysql/mysql_qcache
 
 # nginx
 wget https://raw.githubusercontent.com/munin-monitoring/contrib/master/plugins/nginx/nginx_memory
@@ -41,6 +43,8 @@ ln -s /usr/share/munin/plugins/mysql_size_ondisk /etc/munin/plugins/
 ln -s /usr/share/munin/plugins/mysql_slowqueries /etc/munin/plugins/
 ln -s /usr/share/munin/plugins/mysql_threads /etc/munin/plugins/
 ln -s /usr/share/munin/plugins/mysql_queries /etc/munin/plugins/
+ln -s /usr/share/munin/plugins/mysql_qcache /etc/munin/plugins/
+ln -s /usr/share/munin/plugins/mysql_qcache_mem /etc/munin/plugins/
 
 # nginx
 ln -s /usr/share/munin/plugins/nginx_request /etc/munin/plugins/
