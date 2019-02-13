@@ -60,6 +60,7 @@ server {
 	}
 
 	rewrite  ^/release/(.*).html$  /pages/release.php?code=$1  last;
+	rewrite  ^/api/api_v2.php$ /other/old_api_placeholder/api_v2.php  last;
 	
 	location ~ \.php$ {
 		default_type 'text/plain';
