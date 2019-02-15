@@ -18,6 +18,10 @@ wget https://raw.githubusercontent.com/munin-monitoring/contrib/master/plugins/m
 wget https://raw.githubusercontent.com/munin-monitoring/contrib/master/plugins/mysql/mysql_qcache_mem
 wget https://raw.githubusercontent.com/munin-monitoring/contrib/master/plugins/mysql/mysql_qcache
 
+# memcached
+rm memcached_
+wget https://raw.githubusercontent.com/mhwest13/Memcached-Munin-Plugin/master/memcached_
+
 # nginx
 wget https://raw.githubusercontent.com/munin-monitoring/contrib/master/plugins/nginx/nginx_memory
 
@@ -46,6 +50,14 @@ ln -s /usr/share/munin/plugins/mysql_queries /etc/munin/plugins/
 ln -s /usr/share/munin/plugins/mysql_qcache /etc/munin/plugins/
 ln -s /usr/share/munin/plugins/mysql_qcache_mem /etc/munin/plugins/
 
+# memcached
+ln -s '/usr/share/munin/plugins/memcached_' '/etc/munin/plugins/memcached_bytes'
+ln -s '/usr/share/munin/plugins/memcached_' '/etc/munin/plugins/memcached_commands'
+ln -s '/usr/share/munin/plugins/memcached_' '/etc/munin/plugins/memcached_conns'
+ln -s '/usr/share/munin/plugins/memcached_' '/etc/munin/plugins/memcached_evictions'
+ln -s '/usr/share/munin/plugins/memcached_' '/etc/munin/plugins/memcached_items'
+ln -s '/usr/share/munin/plugins/memcached_' '/etc/munin/plugins/memcached_memory'
+
 # nginx
 ln -s /usr/share/munin/plugins/nginx_request /etc/munin/plugins/
 ln -s /usr/share/munin/plugins/nginx_status /etc/munin/plugins/
@@ -61,6 +73,9 @@ ln -s /usr/share/munin/plugins/xbt_torrents /etc/munin/plugins/
 [nginx*]
 env.url http://www.anilibria.tv/nginx_status
 env.ua nginx-status-verifier/0.1
+
+[memcached_*]
+env.host unix:///tmp/memcached.socket
 ```
 
 Перезапускаем munin, nginx. Включаем spawn-fcgi.
