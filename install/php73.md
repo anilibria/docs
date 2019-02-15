@@ -87,9 +87,7 @@ php_admin_value[opcache.max_accelerated_files] = 4000
 
 php_admin_value[session.gc_probability] = 1
 php_admin_value[session.gc_divisor] = 1000
-php_admin_value[session.gc_maxlifetime] = 7200
-php_admin_value[session.sid_length] = 64
-php_admin_value[session.sid_bits_per_character] = 6
+php_admin_value[session.gc_maxlifetime] = 2592000
 php_admin_value[session.use_only_cookies] = 1
 php_admin_value[session.save_handler] = memcached
 php_admin_value[session.save_path] = "/tmp/memcached.socket"
