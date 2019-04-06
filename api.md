@@ -522,18 +522,22 @@ query
 ##### Модель серии
 ```
 {  
-    "id":12,
-    "title":"Серия 12",
-    "sd":"https://de3.anilibria.tv/videos/ts/1202/0012-sd/playlist.m3u8",
-    "hd":"https://de3.anilibria.tv/videos/ts/1202/0012/playlist.m3u8"
+    "id":1,
+    "title":"Серия 1",
+    "sd":"https:\/\/host.anilibria.tv\/videos\/ts\/0000\/0001-sd\/playlist.m3u8",
+    "hd":"https:\/\/host.anilibria.tv\/videos\/ts\/0000\/0001\/playlist.m3u8",
+    "fullhd":"https:\/\/host.anilibria.tv\/videos\/ts\/0000\/0001-hd\/playlist.m3u8",
+    "srcSd":"https:\/\/host.anilibria.tv\/get\/somestring\/somenumber\/mp4\/0000\/0001-sd.mp4?download=Release Name-1-sd.mp4",
+    "srcHd":"https:\/\/host.anilibria.tv\/get\/somestring\/somenumber\/mp4\/0000\/0001.mp4?download=Release Name-1-hd.mp4"
 }
 ```
 * id [int] – ID серии, по сути это номер серии
 * title [string] – Название для отображения в списке серий 
-* sd [string] – Ссылка на плейлист для онлайн плеера
-* hd [string] – Ссылка на плейлист для онлайн плеера
-* srcSd [string]**?** - Ссылка на файл для скачивания (пока этого нет)
-* srcHd [string]**?** - Ссылка на файл для скачивания (пока этого нет)
+* sd [string] – Ссылка на SD плейлист для онлайн плеера
+* hd [string] – Ссылка на HD плейлист для онлайн плеера
+* fullhd [string]**?** – Ссылка на FullHD плейлист для онлайн плеера (поле опциональное)
+* srcSd [string]**?** - Ссылка на SD файл для скачивания
+* srcHd [string]**?** - Ссылка на HD файл для скачивания
 
 ##### Модель торрента
 ```
