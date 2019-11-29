@@ -3,6 +3,7 @@
 * **?** – Обозначает Nullable или необязательное поле
 
 Оглавление:
+* ["Отправка запросов"](#user-content-отправка-запросов)
 * ["Авторизация"](#user-content-авторизация)
 * ["Релизы"](#user-content-релизы)
 * ["Лента"](#user-content-лента)
@@ -32,6 +33,21 @@
 	* ["Модель пользователя"](#user-content-пользователя)
 	* ["Модель YouTube"](#user-content-модель-youtube)
 	* ["Модель комментариев ВКонтакте"](#user-content-модель-комментариев-вконтакте)
+
+
+### Отправка запросов
+Для отправки запросов нужно использовать не JSON файл, а форму. В противном случае, Вы получите ["Базовую модель ответа"](#user-content-базовая-модель-ответа).
+
+Пример отправки запроса ["Случайный релиз"](#user-content-случайный-релиз) на языке программирования Go
+```
+resp, err := http.PostForm("https://www.anilibria.tv/public/api/index.php",
+    url.Values{"query": {"random_release"}})
+```
+Пример отправки запроса ["Релизы"](#user-content-релизы) на языке программирования Go
+```
+resp, err := http.PostForm("https://www.anilibria.tv/public/api/index.php",
+    url.Values{"query": {"release"}, "code": {"rdg-red-data-girl"}})
+```
 
 
 ### Авторизация
