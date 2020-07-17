@@ -1,4 +1,4 @@
-# AniLibria API – v2.6.3
+# AniLibria API – v2.7.0
 
 - [**RestAPI**](#restapi) – *Документация по RestAPI*
 - [**WebSocket**](#websocket) – *Документация по WebSocket*
@@ -41,6 +41,7 @@ id | int | ID тайтла |
 code | string | Код тайтла |
 filter | string, ... | Список значений которые будут в ответе |
 remove | string, ... | Список значений которые будут удалены из ответа |
+include | string, ... | Список типов файлов которые будут возвращены в выде base64 строки [подробнее](#include) |
 description_type | string | Тип получаемого описания, [подробнее](#description_type) | plain
 playlist_type | string | Формат получаемого списка серий, `object` или `array` | object
 
@@ -71,7 +72,11 @@ playlist_type | string | Формат получаемого списка сер
         "string": "Завершен",
         "code": 2
     },
-    "poster": "/upload/release/350x500/8500.jpg",
+	"poster": {
+        "url": "/upload/release/350x500/8500.jpg",
+        "updated_timestamp": 1570770775,
+        "raw_base64_file": null
+	},
     "updated": 1585249972,
     "last_change": 1590523671,
     "type": {
@@ -171,6 +176,7 @@ playlist_type | string | Формат получаемого списка сер
                 "total_size": 35521275317,
                 "url": "/upload/torrents/10725.torrent",
                 "uploaded_timestamp": 1590483840,
+				"raw_base64_file": null,
                 "metadata": {
                     "hash": "e45884bf43636bf61512a6c5eb1b7b9b0e84a925",
                     "name": "Nanatsu no Taizai - Kamigami no Gekirin - AniLibria.TV [WEBRip 1080p]",
@@ -213,6 +219,7 @@ id_list | string, ... | Список ID тайтлов |
 code_list | string, ... | Список кодов тайтла |
 filter | string, ... | Список значений которые будут в ответе |
 remove | string, ... | Список значений которые будут удалены из ответа |
+include | string, ... | Список типов файлов которые будут возвращены в выде base64 строки [подробнее](#include) |
 description_type | string | Тип получаемого описания, [подробнее](#description_type) | plain
 playlist_type | string | Формат получаемого списка серий, `object` или `array` | object
 
@@ -250,6 +257,7 @@ GET /v2/getUpdates
 -- | -- | -- | --
 filter | string, ... | Список значений которые будут в ответе | 
 remove | string, ... | Список значений которые будут удалены из ответа | 
+include | string, ... | Список типов файлов которые будут возвращены в выде base64 строки [подробнее](#include) |
 limit | int | Количество объектов в ответе | 5
 since | int | Список тайтлов у которых время обновления больше указанного timestamp | 
 description_type | string | Тип получаемого описания, [подробнее](#description_type) | plain
@@ -287,8 +295,10 @@ GET /v2/getChanges
 -- | -- | -- | --
 filter | string, ... | Список значений которые будут в ответе | 
 remove | string, ... | Список значений которые будут удалены из ответа | 
+include | string, ... | Список типов файлов которые будут возвращены в выде base64 строки [подробнее](#include) |
 limit | int | Количество объектов в ответе | 5
 since | int | Список тайтлов у которых время обновления больше указанного timestamp | 
+description_type | string | Тип получаемого описания, [подробнее](#description_type) | plain
 after | int | Удаляет первые n записей из выдачи  | 
 
 *В параметрах `filter` и `remove` можно указать полный путь до ключа который вы хотите оставить или удалить, например `names.alternative` или  `team.voice[0]`*
@@ -323,6 +333,7 @@ GET /v2/getSchedule
 -- | -- | --  | -- 
 filter | string, ... | Список значений которые будут в ответе
 remove | string, ... | Список значений которые будут удалены из ответа
+include | string, ... | Список типов файлов которые будут возвращены в выде base64 строки [подробнее](#include) |
 days | string, ...  | Список дней недели на которые нужно расписание
 description_type | string | Тип получаемого описания, [подробнее](#description_type) | plain
 playlist_type | string | Формат получаемого списка серий, `object` или `array` | object
@@ -399,6 +410,7 @@ GET /v2/getRandomTitle
 -- | -- | --  | -- 
 filter | string, ... | Список значений которые будут в ответе
 remove | string, ... | Список значений которые будут удалены из ответа
+include | string, ... | Список типов файлов которые будут возвращены в выде base64 строки [подробнее](#include) |
 description_type | string | Тип получаемого описания, [подробнее](#description_type) | plain
 playlist_type | string | Формат получаемого списка серий, `object` или `array` | object
 
@@ -469,6 +481,7 @@ GET /v2/getFeed?filter=
 -- | -- | -- | --
 filter | string, ... | Список значений которые будут в ответе | 
 remove | string, ... | Список значений которые будут удалены из ответа | 
+include | string, ... | Список типов файлов которые будут возвращены в выде base64 строки [подробнее](#include) |
 limit | int | Количество объектов в ответе | 5
 since | int | Список тайтлов у которых время обновления больше указанного timestamp | 
 description_type | string | Тип получаемого описания, [подробнее](#description_type) | plain
@@ -583,6 +596,7 @@ decor | string, ... | Список оформителей |
 timing | string, ... | Список таймеров | 
 filter | string, ... | Список значений которые будут в ответе | 
 remove | string, ... | Список значений которые будут удалены из ответа | 
+include | string, ... | Список типов файлов которые будут возвращены в выде base64 строки [подробнее](#include) |
 description_type | string | Тип получаемого описания, [подробнее](#description_type) | plain
 playlist_type | string | Формат получаемого списка серий, `object` или `array` | object
 limit | int | Количество объектов в ответе | 5
@@ -635,7 +649,7 @@ GET /v2/getTeam
 id **int**  – ID тайтла
 code **string** – Код тайтла, используется для создания ссылки
 [names](#names): **object** – Названия тайтла.
-poster **string** – Относительный url на постер
+[poster](#poster) **object** – Информация о постере
 updated **int** – Timestamp последнего обновления тайтла (обычно тайтл обновляют при выходе новых релизов)
 last_change **int** – Timestamp последнего изменения тайтла (Например описания, или анонса)
 [status](#status) **object** – Статус тайтла
@@ -667,6 +681,11 @@ timestamp **int** – Timestamp времени добавления в базу
 > ru **string** – Русское название тайтла
 > en **string** – Английское название тайтла
 > alternative **string** – Альтернативное название
+
+#### poster:
+> url **string** – Относительный url на постер
+> updated_timestamp **int** – Timestamp изменения файла на сервере
+> raw_base64_file **string** – Постер в base64 формате (если запрошен в параметре [include](#include))
 
 #### series:
 > string **string** – Количество серий в виде строки
@@ -770,6 +789,7 @@ timestamp **int** – Timestamp времени добавления в базу
 > name **string** – Имя тайтла в торрент файле
 > announce **array[string]** – Массив строк содержащий список трекеров
 > created_timestamp **int** – Время создания/изменения торрента в формате unix timestamp
+> raw_base64_file **string** – Торрент файл в base64 формате (если запрошен в параметре [include](#include))
 > [files_list](#files_list) **array[object]** – Массив объектов содержащий список файлов в торренте
 
 ###### files_list:
@@ -779,9 +799,14 @@ timestamp **int** – Timestamp времени добавления в базу
 
 
 #### description_type:
-> html **string** – Описание тайтла в виде html (в том виде в каком оно на сайте)
-> plain **string** – Описание тайтла в виде текста без дополнительного форматирования
-> no_view_order **string** – Описание тайтла в виде текста без дополнительного форматирования и порядка просмотра
+> html – Описание тайтла в виде html (в том виде в каком оно на сайте)
+> plain – Описание тайтла в виде текста без дополнительного форматирования
+> no_view_order – Описание тайтла в виде текста без дополнительного форматирования и порядка просмотра
+
+#### include:
+*Это полезно в случае если вы не хотите делать много запросов, такая конструкция позволяет получить все необходимое в одном запросе*
+> raw_poster – Добавить постер в base64 формате в ответ
+> raw_torrent – Добавить торрент файлы в base64 формате в ответ
 ***
 
 
