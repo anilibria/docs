@@ -1,4 +1,4 @@
-# AniLibria API – v2.8.0
+# AniLibria API – v2.8.2
 
 - [**RestAPI**](#restapi) – *Документация по RestAPI*
 - [**WebSocket**](#websocket) – *Документация по WebSocket*
@@ -41,7 +41,7 @@ id | int | ID тайтла |
 code | string | Код тайтла |
 filter | string, ... | Список значений которые будут в ответе |
 remove | string, ... | Список значений которые будут удалены из ответа |
-include | string, ... | Список типов файлов которые будут возвращены в выде base64 строки [подробнее](#include) |
+include | string, ... | Список типов файлов которые будут возвращены в виде base64 строки [подробнее](#include) |
 description_type | string | Тип получаемого описания, [подробнее](#description_type) | plain
 playlist_type | string | Формат получаемого списка серий, `object` или `array` | object
 
@@ -220,7 +220,7 @@ id_list | string, ... | Список ID тайтлов |
 code_list | string, ... | Список кодов тайтла |
 filter | string, ... | Список значений которые будут в ответе |
 remove | string, ... | Список значений которые будут удалены из ответа |
-include | string, ... | Список типов файлов которые будут возвращены в выде base64 строки [подробнее](#include) |
+include | string, ... | Список типов файлов которые будут возвращены в виде base64 строки [подробнее](#include) |
 description_type | string | Тип получаемого описания, [подробнее](#description_type) | plain
 playlist_type | string | Формат получаемого списка серий, `object` или `array` | object
 
@@ -258,7 +258,7 @@ GET /v2/getUpdates
 -- | -- | -- | --
 filter | string, ... | Список значений которые будут в ответе | 
 remove | string, ... | Список значений которые будут удалены из ответа | 
-include | string, ... | Список типов файлов которые будут возвращены в выде base64 строки [подробнее](#include) |
+include | string, ... | Список типов файлов которые будут возвращены в виде base64 строки [подробнее](#include) |
 limit | int | Количество объектов в ответе | 5
 since | int | Список тайтлов у которых время обновления больше указанного timestamp | 
 description_type | string | Тип получаемого описания, [подробнее](#description_type) | plain
@@ -296,7 +296,7 @@ GET /v2/getChanges
 -- | -- | -- | --
 filter | string, ... | Список значений которые будут в ответе | 
 remove | string, ... | Список значений которые будут удалены из ответа | 
-include | string, ... | Список типов файлов которые будут возвращены в выде base64 строки [подробнее](#include) |
+include | string, ... | Список типов файлов которые будут возвращены в виде base64 строки [подробнее](#include) |
 limit | int | Количество объектов в ответе | 5
 since | int | Список тайтлов у которых время обновления больше указанного timestamp | 
 description_type | string | Тип получаемого описания, [подробнее](#description_type) | plain
@@ -334,7 +334,7 @@ GET /v2/getSchedule
 -- | -- | --  | -- 
 filter | string, ... | Список значений которые будут в ответе
 remove | string, ... | Список значений которые будут удалены из ответа
-include | string, ... | Список типов файлов которые будут возвращены в выде base64 строки [подробнее](#include) |
+include | string, ... | Список типов файлов которые будут возвращены в виде base64 строки [подробнее](#include) |
 days | string, ...  | Список дней недели на которые нужно расписание
 description_type | string | Тип получаемого описания, [подробнее](#description_type) | plain
 playlist_type | string | Формат получаемого списка серий, `object` или `array` | object
@@ -411,7 +411,7 @@ GET /v2/getRandomTitle
 -- | -- | --  | -- 
 filter | string, ... | Список значений которые будут в ответе
 remove | string, ... | Список значений которые будут удалены из ответа
-include | string, ... | Список типов файлов которые будут возвращены в выде base64 строки [подробнее](#include) |
+include | string, ... | Список типов файлов которые будут возвращены в виде base64 строки [подробнее](#include) |
 description_type | string | Тип получаемого описания, [подробнее](#description_type) | plain
 playlist_type | string | Формат получаемого списка серий, `object` или `array` | object
 
@@ -482,7 +482,7 @@ GET /v2/getFeed?filter=
 -- | -- | -- | --
 filter | string, ... | Список значений которые будут в ответе | 
 remove | string, ... | Список значений которые будут удалены из ответа | 
-include | string, ... | Список типов файлов которые будут возвращены в выде base64 строки [подробнее](#include) |
+include | string, ... | Список типов файлов которые будут возвращены в виде base64 строки [подробнее](#include) |
 limit | int | Количество объектов в ответе | 5
 since | int | Список тайтлов у которых время обновления больше указанного timestamp | 
 description_type | string | Тип получаемого описания, [подробнее](#description_type) | plain
@@ -597,7 +597,7 @@ decor | string, ... | Список оформителей |
 timing | string, ... | Список таймеров | 
 filter | string, ... | Список значений которые будут в ответе | 
 remove | string, ... | Список значений которые будут удалены из ответа | 
-include | string, ... | Список типов файлов которые будут возвращены в выде base64 строки [подробнее](#include) |
+include | string, ... | Список типов файлов которые будут возвращены в виде base64 строки [подробнее](#include) |
 description_type | string | Тип получаемого описания, [подробнее](#description_type) | plain
 playlist_type | string | Формат получаемого списка серий, `object` или `array` | object
 limit | int | Количество объектов в ответе | 5
