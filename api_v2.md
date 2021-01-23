@@ -1,4 +1,4 @@
-# AniLibria API – v2.9.0
+# AniLibria API – v2.9.3
 
 - [**RestAPI**](#restapi) – *Документация по RestAPI*
 - [**WebSocket**](#websocket) – *Документация по WebSocket*
@@ -138,6 +138,7 @@ playlist_type | string | Формат получаемого списка сер
         "playlist": {
             "1": {
                 "id": 1,
+				"created_timestamp": 1611164281,
                 "hls": {
                     "fhd": "/videos/ts/8500/0001-hd/playlist.m3u8",
                     "hd": "/videos/ts/8500/0001/playlist.m3u8",
@@ -775,6 +776,7 @@ timestamp **int** – Timestamp времени добавления в базу
 
 ##### playlist:
 > id **int** – Номер серии
+> created_timestamp **int** – Время создания/изменения плейлиста в формате unix timestamp
 > [hls](#hls) **object** – Объект содержащий ссылки на потоковое воспроизведение в разном качестве
 
 ###### hls:
@@ -812,7 +814,7 @@ timestamp **int** – Timestamp времени добавления в базу
 > hash **string** – Хеш торрент файла
 > name **string** – Имя тайтла в торрент файле
 > announce **array[string]** – Массив строк содержащий список трекеров
-> created_timestamp **int** – Время создания/изменения торрента в формате unix timestamp
+> created_timestamp **int** – Время создания торрента в формате unix timestamp
 > [files_list](#files_list) **array[object]** – Массив объектов содержащий список файлов в торренте
 
 ###### files_list:
