@@ -458,11 +458,13 @@ GET /v2/getYouTube
 ```json
 [
     {
-        "id": 341,
-        "title": "АНОНС - АНИМЕ ЗИМА 2017",
-        "image": "https://img.youtube.com/vi/OXBO4h3l3rM/0.jpg",
-        "youtube_id": "OXBO4h3l3rM",
-        "timestamp": 1503824801
+        "id": 10861,
+        "title": "АНИМЕ Своя игра с АниЛибрией (Люпин, Шарон, Зозя, Сахарочек, Рокетту, Никанор47)",
+        "image": "https://img.youtube.com/vi/rvhfqzXXZaU/0.jpg",
+        "youtube_id": "rvhfqzXXZaU",
+        "comments": 29,
+        "views": 7911,
+        "timestamp": 1656844874
     },
     ...
 }
@@ -885,7 +887,9 @@ id **int**  – ID записи в базе
 title **string** – Название видео ролика  
 image **string** – Ссылка на превью к ролику  
 youtube_id **string** – ID видео на YouTube (Легко форматируется в https://youtu.be/{youtube_id})  
-timestamp **int** – Timestamp времени добавления в базу
+timestamp **int** – Timestamp времени добавления в базу  
+comments **int** - Количество комментариев у ролика
+views **int** - Количество просмотров у ролика
 
 >*В случае отсутствия какой-то информации значения поля будет `null` для строк, пустой массив для массивов, и 0 для чисел*
 >*Такое редко, но бывает.*
