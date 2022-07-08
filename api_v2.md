@@ -1309,7 +1309,7 @@ id **string** – ID обновленного тайтла.
 episode **string** – Номер вышедшего или перезалитого релиза.  
 resolution **string** - Разрешение, в котором была скодирована серия.  
 quality **string** – Качество, в котором кодируется серия (одно из значений [hls](#hls)).  
-encoded_percent **string** - процент кодирования.
+encoded_percent **string** – процент кодирования.
 
 
 #### encode_finish
