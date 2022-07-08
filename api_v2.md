@@ -1,4 +1,4 @@
-# AniLibria API – v2.13.16
+# AniLibria API – v2.13.17
 
 > :warning: **Внимание**: 
 > 
