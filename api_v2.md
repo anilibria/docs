@@ -1438,8 +1438,12 @@ hash **string** – Хеш уведомления, для проверки ун�
 ```json
 {
     "subscribe": {
-        "season": {
-            "year": 2022
+        "title_update": {
+            "title": {
+                "season": {
+                    "year": 2022
+                }
+            }
         }
     },
     "filter": "names,season",
