@@ -349,8 +349,8 @@ DEPRECATED - GET /v2/getChanges
 | [description_type](#description_type) | string      | Тип получаемого описания, [подробнее](#description_type)                                 | plain        |
 | playlist_type                         | string      | Формат получаемого списка серий, `object` или `array`                                    | object       |
 | after                                 | int         | Удаляет первые n записей из выдачи                                                       |              |
-| page                                  | int         | Номер страницы                                                                           |              |
-| items_per_page                        | int         | Количество элементов на странице                                                         |              |
+| page                                  | int         | Номер страницы                                                                           | 1            |
+| items_per_page                        | int         | Количество элементов на странице                                                         | 5            |
 
 *В параметрах `filter` и `remove` можно указать полный путь до ключа, который вы хотите оставить или удалить, например: `names.alternative` или `team.voice[0]`. С версии 2.8 появилась возможность получать значения одного ключа во всех объектах в массиве, например: torrents.list[\*].torrent_id*
 
@@ -654,6 +654,9 @@ DEPRECATED - GET /v2/searchTitles
     }
 }
 ```
+
+[Подробнее об объекте пагинации](#pagination)
+
 ***
 
 ## title/search/advanced
@@ -693,6 +696,9 @@ DEPRECATED - GET /v2/advancedSearch
     "pagination": {Объект пагинации}
 }
 ```
+
+[Подробнее об объекте пагинации](#pagination)
+
 ***
 
 
@@ -739,8 +745,8 @@ DEPRECATED - GET /v2/getSeedStats
 | after           | int         | Удаляет первые n записей из выдачи                                                     |              |
 | sort_by         | string      | По какому полю производить сортировку, допустимые значения: downloaded, uploaded, user |              |
 | order           | int         | Направление сортировки 0 - DESC, 1 - ASC                                               |              |
-| page            | int         | Номер страницы                                                                         |              |
-| items_per_page  | int         | Количество элементов на странице                                                       |              |
+| page            | int         | Номер страницы                                                                         | 1            |
+| items_per_page  | int         | Количество элементов на странице                                                       | 5            |
 
 ### Примеры запросов
 ```js
@@ -750,14 +756,20 @@ DEPRECATED - GET /v2/getSeedStats
 ### Пример ответа
 
 ```json
-[
+{
+  "list": [
     {
-        "downloaded": 72110162198,
-        "uploaded": 1163165762554,
-        "user": "T1MOX4"
-    }
-]
+      "downloaded": 72110162198,
+      "uploaded": 1163165762554,
+      "user": "T1MOX4"
+    },
+    ...
+  ],
+  "pagination": {Объект пагинации}
+}
 ```
+
+[Подробнее об объекте пагинации](#pagination)
 
 ## torrent/rss
 Возвращает список обновлений на сайте в одном из форматов RSS ленты
