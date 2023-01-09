@@ -304,8 +304,8 @@ DEPRECATED - GET /v2/getUpdates
 | [description_type](#description_type) | string      | Тип получаемого описания, [подробнее](#description_type)                                 | plain        |
 | playlist_type                         | string      | Формат получаемого списка серий, `object` или `array`                                    | object       |
 | after                                 | int         | Удаляет первые n записей из выдачи                                                       |              |
-| page                                  | int         | Номер страницы                                                                           |              |
-| items_per_page                        | int         | Количество элементов на странице                                                         |              |
+| page                                  | int         | Номер страницы                                                                           | 1            |
+| items_per_page                        | int         | Количество элементов на странице                                                         | 5            |
 
 *В параметрах `filter` и `remove` можно указать полный путь до ключа, который вы хотите оставить или удалить, например: `names.alternative` или `team.voice[0]`. С версии 2.8 появилась возможность получать значения одного ключа во всех объектах в массиве, например: torrents.list[\*].torrent_id*
 
