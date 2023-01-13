@@ -1071,6 +1071,7 @@ patreon_id **string** – ID аккаунта Patreon
 > [host](#host) **object** – Имя сервера для построения ссылок на поток.   
 > [list](#listplayer) **object** – Список релизов тайтла со ссылками на просмотр и загрузку.  
 > [episodes](#episodes) **object** – Количество вышедших в плеере серий.
+> [rutube](#rutube) **object** - Список релизов тайтла на видеохостинге Rutube.
 
 ##### host:
 > hls **string** – Ссылка без домена на альтернативный плеер  
@@ -1089,6 +1090,11 @@ patreon_id **string** – ID аккаунта Patreon
 > fhd **string** – Ссылка без домена на потоковое воспроизведение в Full-HD качестве  
 > hd **string** – Ссылка без домена на потоковое воспроизведение в HD качестве  
 > sd **string** – Ссылка без домена на потоковое воспроизведение в SD качестве
+
+##### rutube:
+> created_timespamp **int** - Время создания в формате UNIX timespamp 
+> rutube_id **string** - Айди серии  
+> episode **int** - Номер серии
 
 ***
 
