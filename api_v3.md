@@ -1092,7 +1092,7 @@ patreon_id **string** – ID аккаунта Patreon
 > sd **string** – Ссылка без домена на потоковое воспроизведение в SD качестве
 
 ##### rutube:
-> created_timespamp **int** - Время создания в формате UNIX timespamp 
+> created_timespamp **int** - Время создания в формате UNIX timespamp  
 > rutube_id **string** - Айди серии  
 > episode **int** - Номер серии
 
