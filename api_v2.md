@@ -9,9 +9,6 @@
 - [**RestAPI**](#restapi) – *Документация по RestAPI*
 - [**WebSocket**](#websocket) – *Документация по WebSocket*
 
-- [**RestAPI**](#restapi) – *Документация по RestAPI*
-- [**WebSocket**](#websocket) – *Документация по WebSocket*
-
 ## RestAPI
 ```
 http(s)://api.anilibria.tv/v2/
