@@ -1,56 +1,57 @@
-# AniLibria API – v2.13.18
+# AniLibria API – v3.0.0
 
-> :warning: **Внимание**: 
-> 
-> **После выхода версии v2.13.0 поддержка всех предыдущих версий API до v2.12.0 была прекращена!**
->
->В связи с переходом на новый бэкэнд сайта с существенными изменениями в архитектуре проекта. 
+>⚠️ v2 DEPRECATED  
+> **В версии v3 роуты претерпели серьезные изменения**  
+> Хотя поддержка старых роутов и осталась, рекомендуется в новых проектах использовать новые пути.
 
-- [**RestAPI**](#restapi) – *Документация по RestAPI*
-- [**WebSocket**](#websocket) – *Документация по WebSocket*
+> ⚠️ Внимание  
+> **Перечитайте секцию [Полезное](#полезное), для того чтобы у вас ничего не сломалось между релизами.**  
+> После выхода версии v2.13.0 поддержка всех предыдущих версий API до v2.12.0 была прекращена!
 
 - [**RestAPI**](#restapi) – *Документация по RestAPI*
 - [**WebSocket**](#websocket) – *Документация по WebSocket*
 
 ## RestAPI
 ```
-http(s)://api.anilibria.tv/v2/
+http(s)://api.anilibria.tv/v3/
 ```
 
 # Список методов:
 
 ## Открытые методы
-- [**getTitle**](#-gettitle) – *Получить информацию о тайтле*
-- [**getTitles**](#-gettitles) – *Получить информацию о нескольких тайтлах сразу*
-- [**getUpdates**](#-getupdates) – *Список тайтлов, отсортированные по времени добавления нового релиза*
-- [**getChanges**](#-getchanges) – *Список тайтлов, отсортированные по времени изменения*
-- [**getUpdates**](#-getupdates) – *Список тайтлов, отсортированные по времени добавления нового релиза*
-- [**getChanges**](#-getchanges) – *Список тайтлов, отсортированные по времени изменения*
-- [**getSchedule**](#-getschedule) – *Расписание выхода тайтлов, отсортированное по дням недели*
-- [**getRandomTitle**](#-getrandomtitle) – *Возвращает случайный тайтл из базы*
-- [**getYouTube**](#-getyoutube) – *Информация о вышедших роликах на наших YouTube каналах в хронологическом порядке*
-- [**getFeed**](#-getfeed) – *Список обновлений тайтлов и роликов на наших YouTube каналах в хронологическом порядке*
-- [**getYears**](#-getyears) – *Возвращает список годов выхода доступных тайтлов по возрастанию*
-- [**getGenres**](#-getgenres) – *Возвращает список всех жанров по алфавиту*
-- [**getCachingNodes**](#-getcachingnodes) – *Возвращает список кеш серверов, с которых можно брать данные*
-- [**getTeam**](#-getteam) – *Возвращает список участников команды, когда-либо существовавших на проекте.*
-- [**getSeedStats**](#-getseedstats) – *Возвращает список пользователей и их статистику на трекере.*
-- [**getRSS**](#-getrss) – *Возвращает список обновлений на сайте в одном из форматов RSS ленты*
-- [**searchTitles**](#-searchtitles) – *Возвращает список найденных по фильтрам тайтлов*
-- [**advancedSearch**](#-advancedsearch) – *Поиск информации по продвинутым фильтрам с поддержкой сортировки*
+
+- [**`GET /title`**](#title) – *Получить информацию о тайтле*
+- [**`GET /title/list`**](#titlelist) – *Получить информацию о нескольких тайтлах сразу*
+- [**`GET /title/updates`**](#titleupdates) – *Список тайтлов, отсортированные по времени добавления нового релиза*
+- [**`GET /title/changes`**](#titlechanges) – *Список тайтлов, отсортированные по времени изменения*
+- [**`GET /title/schedule`**](#titleschedule) – *Расписание выхода тайтлов, отсортированное по дням недели*
+- [**`GET /title/random`**](#titlerandom) – *Возвращает случайный тайтл из базы*
+- [**`GET /title/search`**](#titlesearch) – *Возвращает список найденных по фильтрам тайтлов*
+- [**`GET /title/search/advanced`**](#titlesearchadvanced) – *Поиск информации по продвинутым фильтрам с поддержкой сортировки*
+- [**`GET /youtube`**](#youtube) – *Информация о вышедших роликах на наших YouTube каналах в хронологическом порядке*
+- [**`GET /feed`**](#feed) – *Список обновлений тайтлов и роликов на наших YouTube каналах в хронологическом порядке*
+- [**`GET /years`**](#years) – *Возвращает список годов выхода доступных тайтлов по возрастанию*
+- [**`GET /genres`**](#genres) – *Возвращает список всех жанров по алфавиту*
+- [**`GET /team`**](#team) – *Возвращает список участников команды, когда-либо существовавших на проекте.*
+- [**`GET /torrent/seed_stats`**](#torrentseed_stats) – *Возвращает список пользователей и их статистику на трекере.*
+- [**`GET /torrent/rss`**](#torrentrss) – *Возвращает список обновлений на сайте в одном из форматов RSS ленты*
 
 ## Пользовательские методы, требующие авторизации
-- [**getFavorites**](#-getfavorites) – *Возвращает список избранных тайтлов пользователя*
-- [**addFavorite**](#-addfavorite) – *Добавляет тайтл в список избранных*
-- [**delFavorite**](#-delfavorite) – *Удаляет тайтл из списка избранных*
+
+- [**`GET /user`**](#user) – *Получить информацию об аккаунте пользователя*
+- [**`GET /user/favorites`**](#userfavorites) – *Возвращает список избранных тайтлов пользователя*
+- [**`PUT /user/favorites`**](#userfavorites-add) – *Добавляет тайтл в список избранных*
+- [**`DELETE /user/favorites`**](#userfavorites-remove) – *Удаляет тайтл из списка избранных*
+search
 
 # Описание методов: 
 
-## • getTitle
+## title
 Получить информацию о тайтле по id или коду
 
 ```js
-GET /v2/getTitle
+GET /v3/title
+DEPRECATED - GET /v2/getTitle
 ```
 
 ### Все доступные параметры
@@ -69,155 +70,181 @@ GET /v2/getTitle
 
 ### Примеры запросов
 ```js
-/v2/getTitle?id=8500&filter=posters,type,status,player.playlist.24
+/v3/title?id=9000
 ```
 ```js
-/v2/getTitle?code=nanatsu-no-taizai-kamigami-no-gekirin
+/v3/title?code=kizumonogatari-iii-reiketsu-hen
 ```
 
 ### Пример ответа
 ```json
 {
-    "id": 8500,
-    "code": "nanatsu-no-taizai-kamigami-no-gekirin",
-    "names": {
-        "ru": "Семь смертных грехов: Гнев богов ТВ-3",
-        "en": "Nanatsu no Taizai: Kamigami no Gekirin TV-3",
-        "alternative": null
+  "id": 9000,
+  "code": "kizumonogatari-iii-reiketsu-hen",
+  "names": {
+    "ru": "Истории Ран. Часть 3: Холодная кровь",
+    "en": "Kizumonogatari III: Reiketsu-hen",
+    "alternative": null
+  },
+  "announce": "Релиз завершен!",
+  "status": {
+    "string": "Завершен",
+    "code": 2
+  },
+  "posters": {
+    "small": {
+      "url": "/storage/releases/posters/9000/NBPPaSwgJrcoO4eg__f003bb6841ce26560a643491c197878f.jpg",
+      "raw_base64_file": null
     },
-    "announce": "В 24 серии замена войсера. В течение недели будет исправление.",
-    "status": {
-        "string": "Завершен",
-        "code": 2
+    "medium": {
+      "url": "/storage/releases/posters/9000/NBPPaSwgJrcoO4eg__f003bb6841ce26560a643491c197878f.jpg",
+      "raw_base64_file": null
     },
-    "posters": {
-        "small": {
-            "url": "/storage/releases/posters/8500/W4Q1mG49XVQnOUnc.jpg",
-            "raw_base64_file": null
-        },
-        "medium": {
-            "url": "/storage/releases/posters/8500/W4Q1mG49XVQnOUnc.jpg",
-            "raw_base64_file": null
-        },
-        "original": {
-            "url": "/storage/releases/posters/8500/W4Q1mG49XVQnOUnc.jpg",
-            "raw_base64_file": null
-        }
-    },
-    "updated": 1585249972,
-    "last_change": 1642539074,
-    "type": {
-        "full_string": "ТВ (24 эп.), 25 мин.",
-        "code": 1,
-        "string": "TV",
-        "series": 24,
-        "length": 25
-    },
-    "genres": [
-        "Магия",
-        "Приключения",
-        "Сверхъестественное",
-        "Сёнен",
-        "Экшен"
-    ],
-    "team": {
-        "voice": [
-            "Anzen",
-            "Cleo-chan",
-            "Hekomi",
-            "Kari",
-            "Sharon"
-        ],
-        "translator": [
-            "Anku"
-        ],
-        "editing": [
-            "mutagenb"
-        ],
-        "decor": [],
-        "timing": [
-            "Alkhorus"
-        ]
-    },
-    "season": {
-        "string": "осень",
-        "code": 4,
-        "year": 2019,
-        "week_day": 4
-    },
-    "description": "Продолжение аниме «Семь смертных грехов» расскажет нам о том, как Грехи продолжают противостояние с Десятью Заповедями. Мелиодасу и Элизабет предстоит вновь испытать свою судьбу в новых приключениях и сражениях, а также открыть секрет этого мира.",
-    "in_favorites": 10333,
-    "blocked": {
-        "blocked": false,
-        "bakanim": false
-    },
-    "player": {
-        "alternative_player": "//kodik.info/serial/19248/803944eb832adacd4d4bec7d4221f941/720p?translations=false",
-        "host": "de4.libria.fun",
-        "series": {
-            "first": 1,
-            "last": 24,
-            "string": "1-24"
-        },
-        "playlist": {
-            "1": {
-                "serie": 1,
-                "created_timestamp": 1570809272,
-                "preview": null,
-                "skips": {
-                    "opening": [],
-                    "ending": []
-                },
-                "hls": {
-                    "fhd": "/videos/media/ts/8500/1/1080/6a6fc29f9428b2dcc8ce74ad21bb1cca.m3u8",
-                    "hd": "/videos/media/ts/8500/1/720/8e5d9ba9e79d80ca6b6db6e6e375b4bb.m3u8",
-                    "sd": "/videos/media/ts/8500/1/480/93048587fb765c9f2077ca7adad9457e.m3u8"
-                }
-            },
-            ...
-    },
-    "torrents": {
-        "series": {
-            "first": 1,
-            "last": 24,
-            "string": "1-24"
-        },
-        "list": [
-            {
-                "torrent_id": 10725,
-                "series": {
-                    "first": 1,
-                    "last": 24,
-                    "string": "1-24"
-                },
-                "quality": {
-                    "string": "WEBRip 1080p",
-                    "type": "WEBRip",
-                    "resolution": "1080p",
-                    "encoder": "h264",
-                    "lq_audio": null
-                },
-                "leechers": 1,
-                "seeders": 17,
-                "downloads": 10692,
-                "total_size": 35521275317,
-                "url": "/public/torrent/download.php?id=10725",
-                "uploaded_timestamp": 1590483840,
-                "hash": "e45884bf43636bf61512a6c5eb1b7b9b0e84a925",
-                "metadata": null,
-                "raw_base64_file": null
-            },
-            ...
-        ]
+    "original": {
+      "url": "/storage/releases/posters/9000/NBPPaSwgJrcoO4eg__f003bb6841ce26560a643491c197878f.jpg",
+      "raw_base64_file": null
     }
+  },
+  "updated": 1624984055,
+  "last_change": 1671901871,
+  "type": {
+    "full_string": "Фильм, 83 мин.",
+    "code": 0,
+    "string": "MOVIE",
+    "episodes": null,
+    "length": 83
+  },
+  "genres": [
+    "Вампиры",
+    "Детектив",
+    "Сверхъестественное",
+    "Экшен"
+  ],
+  "team": {
+    "voice": [
+      "BStrong",
+      "Gomer",
+      "MyAska",
+      "SlivciS"
+    ],
+    "translator": [
+      "Sesha_Rim",
+      "Yukigawa"
+    ],
+    "editing": [
+      "Aero"
+    ],
+    "decor": [
+      "Helge"
+    ],
+    "timing": [
+      "im4x"
+    ]
+  },
+  "season": {
+    "string": "зима",
+    "code": 1,
+    "year": 2017,
+    "week_day": 0
+  },
+  "description": "Заключительная часть из трилогии полнометражных фильмов «Истории Ран».\r\n\r\nПосле боёв с тремя охотниками (Драматургия, Эпизод, Гильотина) Арараги получил все части тела Киссшот и готов их ей вернуть, чтобы снова стать человеком. Но остаётся много вопросов: как Киссшот сделает его человеком? Как трое охотников победили Киссшот на пике её силы? Зачем на самом деле приехал Мэмэ Ошино? И как в итоге продолжатся отношения Арараги и Ханэкавы?",
+  "in_favorites": 1052,
+  "blocked": {
+    "blocked": false,
+    "bakanim": false
+  },
+  "player": {
+    "alternative_player": null,
+    "host": "de1.libria.fun",
+    "episodes": {
+      "first": 1,
+      "last": 1,
+      "string": "1-1"
+    },
+    "list": {
+      "1": {
+        "episode": 1,
+        "created_timestamp": 1624983774,
+        "preview": null,
+        "skips": {
+          "opening": [],
+          "ending": []
+        },
+        "hls": {
+          "fhd": "/videos/media/ts/9000/1/1080/7f3c1729ebd24b93d4e0918510004606.m3u8",
+          "hd": "/videos/media/ts/9000/1/720/e313ea7c883c81fba86547414ec18b5e.m3u8",
+          "sd": "/videos/media/ts/9000/1/480/8a7f4d218433f5a5fee1c6f5a02d278e.m3u8"
+        }
+      }
+    },
+    "rutube": {}
+  },
+  "torrents": {
+    "episodes": {
+      "first": 1,
+      "last": 1,
+      "string": "1-1"
+    },
+    "list": [
+      {
+        "torrent_id": 15808,
+        "episodes": {
+          "first": 1,
+          "last": 1,
+          "string": "Фильм"
+        },
+        "quality": {
+          "string": "BDRip 1080p",
+          "type": "BDRip",
+          "resolution": "1080p",
+          "encoder": "h264",
+          "lq_audio": null
+        },
+        "leechers": 1,
+        "seeders": 23,
+        "downloads": 2532,
+        "total_size": 4801286259,
+        "url": "/public/torrent/download.php?id=15808",
+        "uploaded_timestamp": 1624979760,
+        "hash": "769359d20c645989c338a1646f7c2dd6d44b8652",
+        "metadata": null,
+        "raw_base64_file": null
+      },
+      {
+        "torrent_id": 15810,
+        "episodes": {
+          "first": 1,
+          "last": 1,
+          "string": "Фильм"
+        },
+        "quality": {
+          "string": "BDRip 1080p HEVC",
+          "type": "BDRip",
+          "resolution": "1080p",
+          "encoder": "h265",
+          "lq_audio": null
+        },
+        "leechers": 0,
+        "seeders": 27,
+        "downloads": 2791,
+        "total_size": 864734373,
+        "url": "/public/torrent/download.php?id=15810",
+        "uploaded_timestamp": 1624989064,
+        "hash": "00b80dfc7d920f3160ca3105c7d54d594f157dc7",
+        "metadata": null,
+        "raw_base64_file": null
+      }
+    ]
+  }
 }
 ```
 ***
 
-## • getTitles
+## title/list 
 Получить информацию о тайтле по id или коду 
 ```js
-GET /v2/getTitles
+GET /v3/title/list 
+DEPRECATED - GET /v2/getTitles
 ```
 
 ### Все доступные параметры
@@ -225,37 +252,44 @@ GET /v2/getTitles
 | ------------------------------------- | ----------- | ---------------------------------------------------------------------------------------- | ------------ |
 | id_list                               | string, ... | Список ID тайтлов                                                                        |              |
 | code_list                             | string, ... | Список кодов тайтла                                                                      |              |
+| torrent_id_list                       | string, ... | Список ID торрент файлов                                                                 |              |
 | filter                                | string, ... | Список значений, которые будут в ответе                                                  |              |
 | remove                                | string, ... | Список значений, которые будут удалены из ответа                                         |              |
 | [include](#include)                   | string, ... | Список типов файлов, которые будут возвращены в виде base64 строки [подробнее](#include) |              |
 | [description_type](#description_type) | string      | Тип получаемого описания, [подробнее](#description_type)                                 | plain        |
 | playlist_type                         | string      | Формат получаемого списка серий, `object` или `array`                                    | object       |
+| page                                  | int         | Номер страницы                                                                           | 1            |
+| items_per_page                        | int         | Количество элементов на странице                                                         | 5            |
 
 *В параметрах `filter` и `remove` можно указать полный путь до ключа, который вы хотите оставить или удалить, например: `names.alternative` или `team.voice[0]`. С версии 2.8 появилась возможность получать значения одного ключа во всех объектах в массиве, например: torrents.list[\*].torrent_id*
 
 ### Примеры запросов
 ```js
-/v2/getTitles?id_list=8500,8644&filter=posters,type,status,player.playlist.24
+/v3/title/list?id_list=8500,8644&filter=posters,type,status,player.list.24
 ```
 ```js
-/v2/getTitles?code_list=nanatsu-no-taizai-kamigami-no-gekirin
+/v3/title/list?code_list=nanatsu-no-taizai-kamigami-no-gekirin
 ```
 
 ### Пример ответа
 ```json
-[
-    [Возвращаемые поля идентичны /getTitle],
-    ...
-]
+{
+    "list": [Список объектов тайтла],
+    "pagination": {Объект пагинации}
+}
 ```
+[Подробнее о возвращаемых значениях тайтла](#возвращаемые-значения-при-запросе-информации-о-тайтле)  
+[Подробнее об объекте пагинации](#pagination)
 ***
 
 
-## • getUpdates
+## title/updates
 Получить список последних обновлений тайтлов
+* обновлением у нас считается момент когда релиз полностью готов, к примеру когда серия вышла в торренте и плеере и уже успешно залита.
 
 ```js
-GET /v2/getUpdates
+GET /v3/title/updates
+DEPRECATED - GET /v2/getUpdates
 ```
 
 ### Все доступные параметры
@@ -269,70 +303,86 @@ GET /v2/getUpdates
 | since                                 | int         | Список тайтлов, у которых время обновления больше указанного timestamp                   |              |
 | [description_type](#description_type) | string      | Тип получаемого описания, [подробнее](#description_type)                                 | plain        |
 | playlist_type                         | string      | Формат получаемого списка серий, `object` или `array`                                    | object       |
-| after                                 | int         | Удаляет первые n записей из выдачи                                                       |
-
-*В параметрах `filter` и `remove` можно указать полный путь до ключа, который вы хотите оставить или удалить, например: `names.alternative` или `team.voice[0]`. С версии 2.8 появилась возможность получать значения одного ключа во всех объектах в массиве, например: torrents.list[\*].torrent_id*
-
-### Примеры запросов
-```js
-/api/v2/getUpdates?filter=posters,type,status&limit=5
-```
-```js
-/api/v2/getUpdates?since=1590233417
-```
-### Пример ответа
-
-```json
-[
-    [Возвращаемые поля идентичны /getTitle],
-    ...
-]
-```
-***
-
-## • getChanges
-Получить список последних обновлений тайтлов
-
-```js
-GET /v2/getChanges
-```
-
-### Все доступные параметры
-| Параметр                              | Тип         | Описание                                                                                 | По умолчанию |
-| ------------------------------------- | ----------- | ---------------------------------------------------------------------------------------- | ------------ |
-| filter                                | string, ... | Список значений, которые будут в ответе                                                  |              |
-| remove                                | string, ... | Список значений, которые будут удалены из ответа                                         |              |
-| [include](#include)                   | string, ... | Список типов файлов, которые будут возвращены в виде base64 строки [подробнее](#include) |              |
-| [limit](#limit)                       | int         | Количество объектов в ответе                                                             | 5            |
-| since                                 | int         | Список тайтлов, у которых время обновления больше указанного timestamp                   |              |
-| [description_type](#description_type) | string      | Тип получаемого описания, [подробнее](#description_type)                                 | plain        |
 | after                                 | int         | Удаляет первые n записей из выдачи                                                       |              |
+| page                                  | int         | Номер страницы                                                                           | 1            |
+| items_per_page                        | int         | Количество элементов на странице                                                         | 5            |
 
 *В параметрах `filter` и `remove` можно указать полный путь до ключа, который вы хотите оставить или удалить, например: `names.alternative` или `team.voice[0]`. С версии 2.8 появилась возможность получать значения одного ключа во всех объектах в массиве, например: torrents.list[\*].torrent_id*
 
 ### Примеры запросов
 ```js
-/v2/getChanges?filter=posters,type,status&limit=5
+/v3/title/updates?filter=posters,type,status&limit=5
 ```
 ```js
-/v2/getChanges?since=1590233417
+/v3/title/updates?since=1590233417
 ```
 ### Пример ответа
 
 ```json
-[
-    [Возвращаемые поля идентичны /getTitle],
-    ...
-]
+{
+  "list": [
+     [Список объектов тайтла],
+  ],
+  "pagination": {Объект пагинации}
+}
 ```
+[Подробнее о возвращаемых значениях тайтла](#возвращаемые-значения-при-запросе-информации-о-тайтле)  
+[Подробнее об объекте пагинации](#pagination)
+***
+
+## title/changes
+Получить список последних изменений тайтлов
+
+```js
+GET /v3/title/changes
+DEPRECATED - GET /v2/getChanges
+```
+
+### Все доступные параметры
+| Параметр                              | Тип         | Описание                                                                                 | По умолчанию |
+| ------------------------------------- | ----------- | ---------------------------------------------------------------------------------------- | ------------ |
+| filter                                | string, ... | Список значений, которые будут в ответе                                                  |              |
+| remove                                | string, ... | Список значений, которые будут удалены из ответа                                         |              |
+| [include](#include)                   | string, ... | Список типов файлов, которые будут возвращены в виде base64 строки [подробнее](#include) |              |
+| [limit](#limit)                       | int         | Количество объектов в ответе                                                             | 5            |
+| since                                 | int         | Список тайтлов, у которых время обновления больше указанного timestamp                   |              |
+| [description_type](#description_type) | string      | Тип получаемого описания, [подробнее](#description_type)                                 | plain        |
+| playlist_type                         | string      | Формат получаемого списка серий, `object` или `array`                                    | object       |
+| after                                 | int         | Удаляет первые n записей из выдачи                                                       |              |
+| page                                  | int         | Номер страницы                                                                           | 1            |
+| items_per_page                        | int         | Количество элементов на странице                                                         | 5            |
+
+*В параметрах `filter` и `remove` можно указать полный путь до ключа, который вы хотите оставить или удалить, например: `names.alternative` или `team.voice[0]`. С версии 2.8 появилась возможность получать значения одного ключа во всех объектах в массиве, например: torrents.list[\*].torrent_id*
+
+### Примеры запросов
+```js
+/v3/title/changes?filter=posters,type,status&limit=5
+```
+```js
+/v3/title/changes?since=1590233417
+```
+### Пример ответа
+
+```json
+{
+  "list": [
+     [Список объектов тайтла],
+  ],
+  "pagination": {Объект пагинации}
+}
+```
+[Подробнее о возвращаемых значениях тайтла](#возвращаемые-значения-при-запросе-информации-о-тайтле)  
+[Подробнее об объекте пагинации](#pagination)
+
 ***
 
 
-## • getSchedule
+## title/schedule
 Получить список последних обновлений тайтлов
 
 ```js
-GET /v2/getSchedule
+GET /v3/title/schedule
+DEPRECATED - GET /v2/getSchedule
 ```
 
 ### Все доступные параметры
@@ -351,10 +401,10 @@ GET /v2/getSchedule
 
 ### Примеры запросов
 ```js
-/v2/getSchedule?filter=posters,type,status
+/v3/title/schedule?filter=posters,type,status
 ```
 ```js
-/v2/getSchedule?days=5,6
+/v3/title/schedule?days=5,6
 ```
 ### Пример ответа
 
@@ -363,13 +413,13 @@ GET /v2/getSchedule
     {
         "day": 5,
         "list": [
-            [Возвращаемые поля идентичны /getTitle],
+            [Список объектов тайтла],
             ...
         ]
     },{
         "day": 6,
         "list": [
-            [Возвращаемые поля идентичны /getTitle],
+            [Список объектов тайтла],
             ...
         ]
     }
@@ -378,37 +428,12 @@ GET /v2/getSchedule
 ***
 
 
-## • getCachingNodes
-Список кеш серверов с которых можно брать данные отсортированные по нагрузке
-Севера сортируются в реальном времени, по этому рекомендуется для каждого сервера использовать один из самых верхних серверов.
-
-```js
-GET /v2/getCachingNodes
-```
-
-### Примеры запросов
-```js
-/v2/getCachingNodes
-```
-### Пример ответа
-
-```json
-[
-    "de3.libria.fun",
-    "de2.libria.fun",
-    "de8.libria.fun",
-    "de1.libria.fun",
-    "de6.libria.fun"
-]
-```
-***
-
-
-## • getRandomTitle
+## title/random
 Возвращает случайный тайтл из базы
 
 ```js
-GET /v2/getRandomTitle
+GET /v3/title/random
+DEPRECATED - GET /v2/getRandomTitle
 ```
 
 ### Все доступные параметры
@@ -424,23 +449,23 @@ GET /v2/getRandomTitle
 
 ### Примеры запросов
 ```js
-/v2/getRandomTitle
+/v3/title/random
 ```
 ### Пример ответа
 
 ```json
-{
-    [Возвращаемые поля идентичны /getTitle],
-}
+{Объект тайтла}
 ```
+[Подробнее о возвращаемых значениях тайтла](#возвращаемые-значения-при-запросе-информации-о-тайтле)
 ***
 
 
-## • getYouTube
+## youtube
 Информация о вышедших роликах на наших YouTube каналах в хронологическом порядке
 
 ```js
-GET /v2/getYouTube
+GET /v3/youtube
+DEPRECATED - GET /v2/getYouTube
 ```
 
 ### Все доступные параметры
@@ -451,18 +476,21 @@ GET /v2/getYouTube
 | [limit](#limit) | int         | Количество объектов в ответе                                                | 5            |
 | since           | int         | Список видеороликов, у которых время обновления больше указанного timestamp |              |
 | after           | int         | Удаляет первые n записей из выдачи                                          |              |
+| page            | int         | Номер страницы                                                              | 1            |
+| items_per_page  | int         | Количество элементов на странице                                            | 5            |
 
 *В параметрах `filter` и `remove` можно указать полный путь до ключа, который вы хотите оставить или удалить, например: `names.alternative` или `team.voice[0]`. С версии 2.8 появилась возможность получать значения одного ключа во всех объектах в массиве, например: torrents.list[\*].torrent_id*
 
 ### Примеры запросов
 ```js
-/v2/getYouTube?limit=10
+/v3/youtube?limit=10
 ```
 ### Пример ответа
 
 ```json
 [
-    {
+    "list": [
+      {
         "id": 10861,
         "title": "АНИМЕ Своя игра с АниЛибрией (Люпин, Шарон, Зозя, Сахарочек, Рокетту, Никанор47)",
         "image": "https://img.youtube.com/vi/rvhfqzXXZaU/0.jpg",
@@ -470,18 +498,23 @@ GET /v2/getYouTube
         "comments": 29,
         "views": 7911,
         "timestamp": 1656844874
-    },
-    ...
+      }
+    ]
+    "pagination": {Объект пагинации}
 }
 ```
+[Подробнее о возвращаемых значениях](#возвращаемые-значения-при-запросе-информации-о-youtube-ролике)  
+[Подробнее об объекте пагинации](#pagination)
+
 ***
 
 
-## • getFeed
+## feed
 Список обновлений тайтлов и роликов на наших YouTube каналах в хронологическом порядке
 
 ```js
-GET /v2/getFeed?filter=
+GET /v3/feed
+DEPRECATED - GET /v2/getFeed
 ```
 
 ### Все доступные параметры
@@ -495,48 +528,45 @@ GET /v2/getFeed?filter=
 | [description_type](#description_type) | string      | Тип получаемого описания, [подробнее](#description_type)                                 | plain        |
 | playlist_type                         | string      | Формат получаемого списка серий, `object` или `array`                                    | object       |
 | after                                 | int         | Удаляет первые n записей из выдачи                                                       |              |
+| page                                  | int         | Номер страницы                                                                           | 1            |
+| items_per_page                        | int         | Количество элементов на странице                                                         | 5            |
 
 *В параметрах `filter` и `remove` можно указать полный путь до ключа, который вы хотите оставить или удалить, например: `names.alternative` или `team.voice[0]`. С версии 2.8 появилась возможность получать значения одного ключа во всех объектах в массиве, например: torrents.list[\*].torrent_id*
 
 ### Примеры запросов
 ```js
-/v2/getFeed?limit=10
+/v3/feed?limit=10
 ```
 ### Пример ответа
 
 ```json
 [    
     {
-        "youtube": {
-            [Возвращаемые поля идентичны /getYouTube]
-        }
+        "youtube": {Объект youtube}
     },
     {
-        "youtube": {
-            [Возвращаемые поля идентичны /getYouTube]
-        }
-    },
-    {
-        "title": {
-            [Возвращаемые поля идентичны /getTitle]
-        }
+        "title": {Объект тайтла}
     },
     ...
 ]
 ```
+[Подробнее о возвращаемых значениях тайтла](#возвращаемые-значения-при-запросе-информации-о-тайтле)  
+[Подробнее о возвращаемых значениях youtube](#возвращаемые-значения-при-запросе-информации-о-youtube-ролике)
+
 ***
 
 
-## • getYears
+## years
 Возвращает список годов выхода доступных тайтлов отсортированный по возрастанию
 
 ```js
-GET /v2/getYears
+GET /v3/years
+DEPRECATED - GET /v2/getYears
 ```
 
 ### Примеры запросов
 ```js
-/v2/getYears
+/v3/years
 ```
 ### Пример ответа
 
@@ -552,23 +582,17 @@ GET /v2/getYears
 ***
 
 
-## • getGenres
+## genres
 Возвращает список жанров доступных тайтлов отсортированный по алфавиту
 
 ```js
-GET /v2/getGenres
+GET /v3/genres
+DEPRECATED - GET /v2/getGenres
 ```
-
-### Все доступные параметры
-| Параметр     | Тип                          | Описание                 | По умолчанию |
-| ------------ | ---------------------------- | ------------------------ | ------------ |
-| sorting_type | int                          | Тип сортировки элементов | 0            |
-|              | `0 - Сортировка по алфавиту` |                          |              |
-|              | `1 - Сортировка по рейтингу` |                          |              |
 
 ### Примеры запросов
 ```js
-/v2/getGenres
+/v3/genres
 ```
 
 ### Пример ответа
@@ -584,11 +608,12 @@ GET /v2/getGenres
 ***
 
 
-## • searchTitles
+## title/search
 Возвращает список найденных по фильтрам тайтлов
 
 ```js
-GET /v2/searchTitles
+GET /v3/title/search
+DEPRECATED - GET /v2/searchTitles
 ```
 
 ### Все доступные параметры
@@ -598,11 +623,8 @@ GET /v2/searchTitles
 | year                                  | string, ... | Список годов выхода                                                                      |              |
 | season_code                           | string, ... | Список сезонов, [подробнее](#season)                                                     |              |
 | genres                                | string, ... | Список жанров                                                                            |              |
-| voice                                 | string, ... | Список войсеров через запятую                                                            |              |
-| translator                            | string, ... | Список переводчиков                                                                      |              |
-| editing                               | string, ... | Список сабберов                                                                          |              |
-| decor                                 | string, ... | Список оформителей                                                                       |              |
-| timing                                | string, ... | Список таймеров                                                                          |              |
+| team                                  | string, ... | Поиск по всем командам, список ников через запятую                                       |              |
+| voice                                 | string, ... | Список ников через запятую                                                               |              |
 | filter                                | string, ... | Список значений, которые будут в ответе                                                  |              |
 | remove                                | string, ... | Список значений, которые будут удалены из ответа                                         |              |
 | [include](#include)                   | string, ... | Список типов файлов, которые будут возвращены в виде base64 строки [подробнее](#include) |              |
@@ -610,10 +632,12 @@ GET /v2/searchTitles
 | playlist_type                         | string      | Формат получаемого списка серий, `object` или `array`                                    | object       |
 | [limit](#limit)                       | int         | Количество объектов в ответе                                                             | 5            |
 | after                                 | int         | Удаляет первые n записей из выдачи                                                       |              |
+| page                                  | int         | Номер страницы                                                                           | 1            |
+| items_per_page                        | int         | Количество элементов на странице                                                         | 5            |
 
 ### Примеры запросов
 ```js
-/v2/searchTitles?search=cудьба апокреф&voice=Amikiri,Silv,Hekomi&filter=id,names,team,genres[0]&limit=10
+/v3/title/search?search=cудьба апокреф&voice=Amikiri,Silv,Hekomi&filter=id,names,team,genres[0]&limit=10
 ```
 > Поиск идет по неточному совпадению, так что опечатки допустимы.
 
@@ -621,16 +645,26 @@ GET /v2/searchTitles
 
 ```json
 {
-    [Возвращаемые поля идентичны /getTitle]
+    "list": [Список объектов тайтла],
+    "pagination": {
+      "pages": 4,
+      "current_page": 1,
+      "items_per_page": 5,
+      "total_items": 20
+    }
 }
 ```
+
+[Подробнее об объекте пагинации](#pagination)
+
 ***
 
-## • advancedSearch
+## title/search/advanced
 Возвращает список найденных по фильтрам тайтлов
 
 ```js
-GET /v2/advancedSearch
+GET /v3/title/search/advanced
+DEPRECATED - GET /v2/advancedSearch
 ```
 
 ### Все доступные параметры
@@ -646,54 +680,59 @@ GET /v2/advancedSearch
 | after                                 | int         | Удаляет первые n записей из выдачи                                                       |              |
 | order_by                              | string      | Ключ, по которому будет происходить сортировка результатов                               |              |
 | sort_direction                        | int         | Направление сортировки. 0 - По возрастанию, 1 - По убыванию                              | 0            |
+| page                                  | int         | Номер страницы                                                                           | 1            |
+| items_per_page                        | int         | Количество элементов на странице                                                         | 5            |
 
 ### Примеры запросов
 ```js
-/v2/advancedSearch?query={season.code} == 1 and {season.year} == 2020&filter=id,names,in_favorites&order_by=in_favorites&sort_direction=0
+/v3/title/search/advanced?query={season.code} == 1 and {season.year} == 2020&filter=id,names,in_favorites&order_by=in_favorites&sort_direction=0
 ```
 
 ### Пример ответа
 
 ```json
 {
-    [Возвращаемые поля идентичны /getTitle]
+    "list": [Список объектов тайтла],
+    "pagination": {Объект пагинации}
 }
 ```
+
+[Подробнее об объекте пагинации](#pagination)
+
 ***
 
 
-## • getTeam
+## team
 Возвращает список участников команды когда-либо существовавших на проекте.
 
 ```js
-GET /v2/getTeam
+GET /v3/team
+DEPRECATED - GET /v2/getTeam
 ```
 
 ### Примеры запросов
 ```js
-/v2/getTeam
+/v3/team
 ```
 
 ### Пример ответа
 
 ```json
 {
-    "team": {
-        "voice": [...],
-        "translator": [...],
-        "editing": [...],
-        "decor": [...],
-        "timing": [...]
-    }
+    "voice": [...],
+    "translator": [...],
+    "editing": [...],
+    "decor": [...],
+    "timing": [...]
 }
 ```
 
-
-## • getSeedStats
+## torrent/seed_stats
 Возвращает топ пользователей по количеству загруженного и скачанного через наш торрент трекер.
 
 ```js
-GET /v2/getSeedStats
+GET /v3/torrent/seed_stats
+DEPRECATED - GET /v2/getSeedStats
 ```
 
 ### Все доступные параметры
@@ -706,36 +745,45 @@ GET /v2/getSeedStats
 | after           | int         | Удаляет первые n записей из выдачи                                                     |              |
 | sort_by         | string      | По какому полю производить сортировку, допустимые значения: downloaded, uploaded, user |              |
 | order           | int         | Направление сортировки 0 - DESC, 1 - ASC                                               |              |
+| page            | int         | Номер страницы                                                                         | 1            |
+| items_per_page  | int         | Количество элементов на странице                                                       | 5            |
 
 ### Примеры запросов
 ```js
-/v2/getSeedStats?users=T1MOX4
+/v3/torrent/seed_stats?users=AniLibriaBot
 ```
 
 ### Пример ответа
 
 ```json
-[
+{
+  "list": [
     {
-        "downloaded": 72110162198,
-        "uploaded": 1163165762554,
-        "user": "T1MOX4"
-    }
-]
+      "downloaded": 72110162198,
+      "uploaded": 1163165762554,
+      "user": "T1MOX4"
+    },
+    ...
+  ],
+  "pagination": {Объект пагинации}
+}
 ```
 
-## • getRSS
+[Подробнее об объекте пагинации](#pagination)
+
+## torrent/rss
 Возвращает список обновлений на сайте в одном из форматов RSS ленты
 
 ```js
-GET /v2/getRSS
+GET /v3/torrent/rss
+DEPRECATED - GET /v2/getRSS
 ```
 
 ### Все доступные параметры
 | Параметр              | Тип    | Описание                                                               | По умолчанию |
 | --------------------- | ------ | ---------------------------------------------------------------------- | ------------ |
 | [rss_type](#rss_type) | string | Предпочитаемый формат вывода                                           | rss          |
-| [session](#session)   | string | Уникальный идентификатор сессии пользователя                           |              |
+| [session](#Сессия)    | string | Уникальный идентификатор сессии пользователя                           |              |
 | [limit](#limit)       | int    | Количество объектов в ответе                                           | 10           |
 | since                 | int    | Список тайтлов, у которых время обновления больше указанного timestamp |              |
 | after                 | int    | Удаляет первые n записей из выдачи                                     |              |
@@ -745,7 +793,7 @@ GET /v2/getRSS
 
 ### Примеры запросов
 ```js
-/v2/getRSS?rss_type=atom&limit=5
+/v3/torrent/rss?rss_type=atom&limit=5
 ```
 
 ### Пример ответа
@@ -779,56 +827,100 @@ GET /v2/getRSS
 
 ## Пользовательские методы, для которых нужна авторизация
 
-## • getFavorites
-Возвращает список избранных тайтлов пользователя
+## user
+Возвращает информацию об аккаунте пользователя
 
 ```js
-GET /v2/getFavorites
+GET /v3/user
+DEPRECATED - GET /v2/getUser
 ```
 
 ### Все доступные параметры
-| Параметр                              | Тип         | Описание                                                                                 | Обязательный |
-| ------------------------------------- | ----------- | ---------------------------------------------------------------------------------------- | ------------ |
-| [session](#session)                   | string      | Уникальный идентификатор сессии пользователя                                             | +            |
-| filter                                | string, ... | Список значений, которые будут в ответе                                                  |              |
-| remove                                | string, ... | Список значений, которые будут удалены из ответа                                         |              |
-| [include](#include)                   | string, ... | Список типов файлов, которые будут возвращены в виде base64 строки [подробнее](#include) |              |
-| [description_type](#description_type) | string      | Тип получаемого описания, [подробнее](#description_type)                                 | plain        |
-| playlist_type                         | string      | Формат получаемого списка серий, `object` или `array`                                    | object       |
+| Параметр           | Тип         | Описание                                        | Обязательный |
+| ------------------ | ----------- | ----------------------------------------------- | ------------ |
+| [session](#Сессия) | string      | Уникальный идентификатор сессии пользователя    | +            |
+| filter             | string, ... | Список значений которые будут в ответе          |              |
+| remove             | string, ... | Список значений которые будут удалены из ответа |              |
+
+*В параметрах `filter` и `remove` можно указать полный путь до ключа который вы хотите оставить или удалить, например `names.alternative` или `team.voice[0]`, с версии 2.8. появилась возможность получать значения одного ключа во всех объектах в массиве, например: torrents.list[\*].torrent_id*
+
+### Примеры запросов
+```js
+/v3/user?session=qwertyqwertyqwerty1234567890
+```
+
+### Пример ответа
+```json
+{
+    "login": "AniLibriaBot",
+    "nickname": "AniLibriaBot",
+    "email": "bot@anilibria.tv",
+    "avatar_original": "/",
+    "avatar_thumbnail": "/",
+    "vk_id": "/",
+    "patreon_id": "/",
+}
+```
+[Подробнее о возвращаемых значениях](#возвращаемые-значения-при-запросе-информации-о-пользователе)
+
+## user/favorites
+Возвращает список избранных тайтлов пользователя
+
+```js
+GET /v3/user/favorites
+DEPRECATED - GET /v2/getFavorites
+```
+
+### Все доступные параметры
+| Параметр                              | Тип         | Описание                                                                                 | Обязательный | По умолчанию |
+| ------------------------------------- | ----------- | ---------------------------------------------------------------------------------------- | ------------ | ------------ |
+| [session](#Сессия)                    | string      | Уникальный идентификатор сессии пользователя                                             | +            |              |
+| filter                                | string, ... | Список значений, которые будут в ответе                                                  |              |              |
+| remove                                | string, ... | Список значений, которые будут удалены из ответа                                         |              |              |
+| [include](#include)                   | string, ... | Список типов файлов, которые будут возвращены в виде base64 строки [подробнее](#include) |              |              |
+| [description_type](#description_type) | string      | Тип получаемого описания, [подробнее](#description_type)                                 |              | plain        |
+| playlist_type                         | string      | Формат получаемого списка серий, `object` или `array`                                    |              | object       |
+| [limit](#limit)                       | int         | Количество объектов в ответе                                                             |              | 5            |
+| after                                 | int         | Удаляет первые n записей из выдачи                                                       |              |              |
+| page                                  | int         | Номер страницы                                                                           |              |              |
+| items_per_page                        | int         | Количество элементов на странице                                                         |              |              |
 
 *В параметрах `filter` и `remove` можно указать полный путь до ключа, который вы хотите оставить или удалить, например: `names.alternative` или `team.voice[0]`. С версии 2.8 появилась возможность получать значения одного ключа во всех объектах в массиве, например: torrents.list[\*].torrent_id*
 
 ### Примеры запросов
 ```js
-/v2/getFavorites?session=qwertyqwertyqwerty1234567890
+/v3/user/favorites?session=qwertyqwertyqwerty1234567890
 ```
 
 ### Пример ответа
 
 ```json
-[
-    [Возвращаемые поля идентичны /getTitle],
-    ...
-]
+{
+    "list": [Список объектов тайтла],
+    "pagination": {Объект пагинации}
+}
 ```
+[Подробнее о возвращаемых значениях тайтла](#возвращаемые-значения-при-запросе-информации-о-тайтле)  
+[Подробнее об объекте пагинации](#pagination)
 
-## • addFavorite
+## user/favorites (add)
 Добавить тайтл в список избранных
 
 ```js
-PUT /v2/addFavorite
+PUT /v3/user/favorites
+DEPRECATED - PUT /v2/addFavorite
 ```
 
 ### Все доступные параметры
-| Параметр            | Тип    | Описание                                     | Обязательный |
-| ------------------- | ------ | -------------------------------------------- | ------------ |
-| [session](#session) | string | Уникальный идентификатор сессии пользователя | +            |
-| title_id            | int    | ID тайтла который вы хотите добавить         | +            |
+| Параметр           | Тип    | Описание                                     | Обязательный |
+| ------------------ | ------ | -------------------------------------------- | ------------ |
+| [session](#Сессия) | string | Уникальный идентификатор сессии пользователя | +            |
+| title_id           | int    | ID тайтла который вы хотите добавить         | +            |
 
 
 ### Примеры запросов
 ```js
-/v2/addFavorite?session=qwertyqwertyqwerty1234567890&title_id=8500
+/v3/user/favorites/add?session=qwertyqwertyqwerty1234567890&title_id=8500
 ```
 
 ### Пример ответа
@@ -839,23 +931,24 @@ PUT /v2/addFavorite
 }
 ```
 
-## • delFavorite
+## user/favorites (remove)
 Удалить тайтл из списка избранных
 
 ```js
-DELETE /v2/delFavorite
+DELETE /v3/user/favorites
+DEPRECATED - DELETE /v2/delFavorite
 ```
 
 ### Все доступные параметры
-| Параметр            | Тип    | Описание                                     | Обязательный |
-| ------------------- | ------ | -------------------------------------------- | ------------ |
-| [session](#session) | string | Уникальный идентификатор сессии пользователя | +            |
-| title_id            | int    | ID тайтла который вы хотите удалить          | +            |
+| Параметр           | Тип    | Описание                                     | Обязательный |
+| ------------------ | ------ | -------------------------------------------- | ------------ |
+| [session](#Сессия) | string | Уникальный идентификатор сессии пользователя | +            |
+| title_id           | int    | ID тайтла который вы хотите удалить          | +            |
 
 
 ### Примеры запросов
 ```js
-/v2/delFavorite?session=qwertyqwertyqwerty1234567890&title_id=8500
+/v3/user/favorites?session=qwertyqwertyqwerty1234567890&title_id=8500
 ```
 
 ### Пример ответа
@@ -877,7 +970,7 @@ last_change **int** – Timestamp последнего изменения тай
 [status](#status) **object** – Статус тайтла  
 [type](#type) **object** – Типа тайтла  
 genres **array[string]** – Список жанров  
-[team](#team) **object** – Ники членов команды работавших над тайтлом  
+[team](#team-title) **object** – Ники членов команды работавших над тайтлом  
 [season](#season) **object** – Сезон, год выхода, и день недели из расписания когда выходят новые серии  
 year **int** – Год выпуска тайтла  
 week_day **int** – День недели, когда выходят новые релизы  
@@ -891,12 +984,21 @@ description **string** – Описание тайтла в указанном �
 id **int**  – ID записи в базе  
 title **string** – Название видео ролика  
 image **string** – Ссылка на превью к ролику  
-youtube_id **string** – ID видео на YouTube (Легко форматируется в https://youtu.be/{youtube_id})  
+youtube_id **string** – ID видео на YouTube (Легко форматируется в `https://youtu.be/{youtube_id}`)  
 timestamp **int** – Timestamp времени добавления в базу  
-comments **int** - Количество комментариев у ролика
+comments **int** - Количество комментариев у ролика  
 views **int** - Количество просмотров у ролика
 
->*В случае отсутствия какой-то информации значения поля будет `null` для строк, пустой массив для массивов, и 0 для чисел*
+### Возвращаемые значения при запросе информации о пользователе
+login **string**  – Логин пользователя  
+nickname **string** – Имя пользователя  
+email **string** – Email пользователя  
+avatar_original **string** – Путь к аватару пользователя  
+avatar_thumbnail **string** – Путь к превью аватара пользователя  
+vk_id **string** – ID аккаунта VK  
+patreon_id **string** – ID аккаунта Patreon
+
+>*В случае отсутствия какой-то информации значение поля будет `null` для строк, пустой массив для массивов, и 0 для чисел*
 >*Такое редко, но бывает.*
 
 ### Описание возвращаемых объектов
@@ -915,7 +1017,7 @@ views **int** - Количество просмотров у ролика
 > url **string** – Относительный url на постер  
 > raw_base64_file **string** – Постер в base64 формате (если запрошен в параметре [include](#include))
 
-#### series:
+#### episodes:
 > string **string** – Количество серий в виде строки  
 > first **int** – Первая серия  
 > last **int** – Последняя серия
@@ -931,7 +1033,7 @@ views **int** - Количество просмотров у ролика
 #### type:
 > full_string **string** – Тип тайтла целиком в виде строки (как это указано на сайте)  
 > string **string** – Тип тайтла в виде строки  
-> series **int** – Ожидаемое количество серий  
+> episodes **int** – Ожидаемое количество серий  
 > length **string** – Длительность серий  
 > code **int** – Тип тайтла в виде числа 
 >> 0 – Фильм  
@@ -941,7 +1043,7 @@ views **int** - Количество просмотров у ролика
 >> 4 – Спешл
 >> 5 - WEB
 
-#### team:
+#### team (title):
 > voice **array[string]** – Список войсеров работавших над озвучкой.  
 > translator **array[string]** – Список участников команды работавших над переводом.  
 > editing **array[string]** – Список участников команды работавших над субтитрами.  
@@ -949,10 +1051,10 @@ views **int** - Количество просмотров у ролика
 > timing **array[string]** – Список участников команды работавших над таймингом.
 
 #### season:
-> year **int** – Список войсеров работавших над озвучкой  
+> year **int** – Год выхода.  
 > week_day **int** – День недели. Счет дней недели идет с понедельника, где 0 - Понедельник, а 6 - Воскресенье.  
-> string **string** – Название сезона в котором вышел тайтл.  
-> code **int** – Код сезона в котором вышел тайтл.
+> string **string** – Название сезона, в котором вышел тайтл.  
+> code **int** – Код сезона, в котором вышел тайтл.
 >> 1 - Зима  
 >> 2 - Весна  
 >> 3 - Лето  
@@ -966,17 +1068,19 @@ views **int** - Количество просмотров у ролика
 
 #### player:
 > alternative_player **string** – Ссылка на альтернативный плеер.  
-> [host](#host) **object** – Имена предпочитаемых серверов для построения ссылок на поток и скачивание.  
-> [playlist](#playlist) **object** – Список релизов тайтла со ссылками на просмотр и загрузку.  
-> [series](#series) **object** – Количество вышедших в плеере серий
+> [host](#host) **object** – Имя сервера для построения ссылок на поток.   
+> [list](#listplayer) **object** – Список релизов тайтла со ссылками на просмотр и загрузку.  
+> [episodes](#episodes) **object** – Количество вышедших в плеере серий.
+> [rutube](#rutube) **object** - Список релизов тайтла на видеохостинге Rutube.
 
 ##### host:
 > hls **string** – Ссылка без домена на альтернативный плеер  
 Эти имена служат для того, чтобы использовать их как часть ссылки к файлу.
-Например: `http://de3.libria.fun/videos/ts/8500/0001/playlist.m3u8` позволит скачать указанный файл с сервера.
+Например: `https://cache.libria.fun/videos/media/ts/9284/3/720/4cc228b26307888f9cb0091ff233a6e3.m3u8` позволит скачать указанный файл с сервера.
 
-##### playlist:
-> serie **int** – Номер серии  
+##### list (player):
+> episode **float** – Номер серии  
+> uuid **str** - Уникальный идентификатор серии  
 > created_timestamp **int** – Время создания/изменения плейлиста в формате unix timestamp  
 > preview **str** - Ссылка без домена на превью серии  
 > skips **array[int]** - Массив чисел с временем для пропуска опенинга и эндинга  
@@ -987,25 +1091,31 @@ views **int** - Количество просмотров у ролика
 > hd **string** – Ссылка без домена на потоковое воспроизведение в HD качестве  
 > sd **string** – Ссылка без домена на потоковое воспроизведение в SD качестве
 
+##### rutube:
+> created_timespamp **int** - Время создания в формате UNIX timespamp  
+> rutube_id **string** - Айди серии  
+> episode **int** - Номер серии
+
 ***
 
 #### torrents:
-> [series](#series) **object** – Серии содержащиеся в файле  
+> [episodes](#episodes) **object** – Серии содержащиеся в файле  
 > list **array[object]** – Массив объектов с информацией о торрент файлах
 
 ##### list:
 *Содержит массив объектов с информацией о торрент файлах.*
 > torrent_id **int** – ID торрент файла  
-> [series](#series) **object** – Серии содержащиеся в файле  
+> [episodes](#episodes) **object** – Серии содержащиеся в файле  
 > [quality](#quality) **object** – Информации о разрешении, кодировщике и типе релиза  
 > leechers **int** – Количество личеров (личей)  
 > seeders **int** – Количество сидеров (сидов)  
 > downloads **int** – Количество загрузок файла  
 > total_size **int** – Размер файлов в торренте в байтах  
 > url **string** – Ссылка на торрент файл без домена  
+> magnet **string** – Магнитная ссылка для скачивания торрента.  
 > uploaded_timestamp **int** – Время загрузки торрента в формате unix timestamp  
-> raw_base64_file **string** – Торрент файл в base64 формате (если запрошен в параметре   [include](#include))  
-> [metadata](#metadata) **object** – Объект, содержащий метаданные торрент файла
+> raw_base64_file **string** – Торрент файл в base64 формате (если запрошен в параметре [include](#include))  
+> [metadata](#metadata) **object** – Объект, содержащий метаданные торрент файла  
 > hash **string** - Хеш торрент файла 
 
 ###### quality:
@@ -1056,6 +1166,38 @@ views **int** - Количество просмотров у ролика
 #### query:
 Ключи объектов должны быть закрыты в фигурные скобки, например `{names.ru}`
 
+***
+
+#### pagination:
+В `v3` появился объект пагинации, возвращаемый в некоторых роутах.  
+Он позволяет ускорить ответ на запрос путём уменьшением количества объектов в ответе.
+
+Список роутов, в которых имеется объект пагинации:
+- [`/title/list`](#titlelist)  
+- [`/title/updates`](#titleupdates)  
+- [`/title/changes`](#titlechanges)  
+- [`/youtube`](#youtube)  
+- [`/feed`](#feed)  
+- [`/torrent/seed_stats`](#torrentseed_stats)  
+- [`/title/search`](#titlesearch)  
+- [`/title/search/advanced`](#titlesearchadvanced)  
+
+##### Возвращаемые значения объекта пагинации
+> pages **int** - Всего страниц  
+> current_page **int** - Текущая страница  
+> items_per_page **int** - Количество элементов на странице  
+> total_items **int** - Всего элементов
+
+Пример объекта пагинации:
+```json
+{
+  "pages": 271,
+  "current_page": 0,
+  "items_per_page": 5,
+  "total_items": 1355
+}
+```
+
 ### Поддерживаемые операции
 
 #### Операции сравнения
@@ -1064,10 +1206,10 @@ views **int** - Количество просмотров у ролика
 | -------------------- | ----------------------------------------- |
 | `x == y`             | Равно                                     |
 | `x != y`             | Не равно                                  |
-| `x < y`              | Меньше чем                                |
-| `x <= y`             | Меньше чем или равно                      |
-| `x > y`              | Больше чем                                |
-| `x >= y`             | Больше чем или равно                      |
+| `x < y`              | Меньше, чем                               |
+| `x <= y`             | Меньше, чем или равно                     |
+| `x > y`              | Больше, чем                               |
+| `x >= y`             | Больше, чем или равно                     |
 | `x ~= y`             | Регулярное выражение                      |
 | `x in (a, b, c)`     | Эквивалент (x == a or x == b or x == c)   |
 | `x not in (a, b, c)` | Эквивалент (x != a and x != b and x != c) |
@@ -1117,7 +1259,9 @@ views **int** - Количество просмотров у ролика
 | `len(x)`              | Длина массива или строки                                            |
 | `randomInt(min, max)` | Случайное число в указанном диапазоне                               |
 
-### Получение session id:
+### Сессия
+
+### Получение
 
 Для получения ключа, нужно отправить POST запрос на адрес  
 `https://www.anilibria.tv/public/login.php`
@@ -1154,26 +1298,27 @@ views **int** - Количество просмотров у ролика
 
 ```json
 {
-    "error": { "code": 404, "message": "Title "test" not found!" }
+    "error": { "code": 404, "message": "Title \"test\" not found!" }
 }
 ```
-
 Возникает в случае если запрошеный тайтл отсутствует в базе.  
 и другие...
 
->В случае ошибки HTTP Status дублирует код из **error.code** (Исключение 5хх ошибки)
+>В случае ошибки HTTP Status дублирует код из **error.code** (Исключение 5хх ошибки)  
 >В случае успешного выполнения запроса будет возвращен HTTP Status:  **200**
 ***
 
 ### Полезное
-1. Версию API можно узнать в заголовке `API-Version` и сравнить ее с версией документации, чтобы узнать актуальна ли документация.
-2. Версии меняются по принципу <Major>.<Minor>.<Patch> где Major обозначает очень крупные изменения в коде проекта без обратной совместимости, Minor обозначает существенные изменения в API с частичной обратной совместимостью, и Patch исправление различных ошибок, не влияет на совместимость.
-3. С версии 2.6.2. появилась поддержка старых версий api и был расширен функционал версионирования.
+
+1. Версию API можно узнать в заголовке `API-Version` и сравнить ее с версией вашей документации, чтоб узнать актуальна ли документация.
+2. Версии меняются по принципу `Major.Minor.Patch` где `Major` обозначает очень крупные изменения в коде проекта без обратной совместимости, `Minor` обозначает существенные изменения в API с частичной обратной совместимостью, и `Patch` исправление различных ошибок, не влияет на совместимость.
+3. Имеется поддержка версионирования и для продакшен релизов следует указывать минорный патч, дабы при обновлении у вас ничего не сломалось.
 Таким образом теперь можно использовать либо последнюю версию с последними исправлениями, либо старую минорную со старой схемой которая не будет обновляться и меняться со временем.
 Например, сейчас можно использовать ссылки следующего формата:
->Ссылка на актуальную мажорную версию API - https://api.anilibria.tv/v2/...
->Ссылка на минорный патч со всеми исправлениями - https://api.anilibria.tv/v2.13/...
->Ссылка на патч - https://api.anilibria.tv/v2.13.15/...
+>Ссылка на актуальную мажорную версию API - https://api.anilibria.tv/v3/...
+>Ссылка на минорный патч со всеми исправлениями - https://api.anilibria.tv/v3.0/...
+>Ссылка на патч - https://api.anilibria.tv/v3.0.0/...
+* Версионирование не работает в вебсокетах, там всегда схема latest билда.
 4. Полезно использовать фильтры при запросе информации о множестве тайтлов, к примеру: исключив информацию о плеере, вы существенно сэкономите время ответа, если она вам не нужна.
 
 ## WebSocket
@@ -1181,13 +1326,13 @@ views **int** - Количество просмотров у ролика
 ### Подключение
 
 ```js
-ws(s)://api.anilibria.tv/v2/ws/
+ws(s)://api.anilibria.tv/v3/ws/
 ```
 
 или
 
 ```js
-ws(s)://api.anilibria.tv/v2/webSocket/
+ws(s)://api.anilibria.tv/v3/webSocket/
 ```
 
 > **ВебСокет каждые 30 секунд отправляет ping пакет, который проверяет соединение.**
@@ -1201,13 +1346,12 @@ ws(s)://api.anilibria.tv/v2/webSocket/
 ```json
 {
     "type": "title_update",
-    "title_update": {
-        "hash": "c3499c2729730a7f807efb8676a92dcb6f8a3f8f",
+    "data": {
         "title": {
-            [Возвращаемые поля идентичны /getTitle]
+            Объект тайтла
         },
         "diff": {
-            [Те ключи и значения, что были изменены, добавлены или удалены]
+            Те ключи и значения, что были изменены, добавлены или удалены
         }
     }
 }
@@ -1216,8 +1360,7 @@ ws(s)://api.anilibria.tv/v2/webSocket/
 ##### Возвращаемые значения
 
 type **string** - Тип уведомления.  
-hash **string** – Хеш уведомления, для проверки уникальности уведомления  
-title **object** – Объект, содержащий все поля из /getTitle  
+title **object** – Объект, содержащий все поля из /title  
 diff **object** – Объект, содержащий информацию о том, какие данные были изменены, добавлены или удалены.
 
 #### playlist_update
@@ -1227,7 +1370,7 @@ diff **object** – Объект, содержащий информацию о �
 ```json
 {
     "type": "playlist_update",
-    "playlist_update": {
+    "data": {
         "id": 8700,
         "player": {объект плеера},
         "updated_episode": {объект плейлиста},
@@ -1253,7 +1396,7 @@ reupload **bool** - Означает, перезалив это или нет.
 ```json
 {
     "type": "encode_start",
-    "encode_start": {
+    "data": {
         "id": "8700",
         "episode": "4",
         "resolution": "480",
@@ -1277,7 +1420,7 @@ isReupload **bool** - Означает, перезалив это или нет.
 ```json
 {
     "type": "encode_end",
-    "encode_end": {
+    "data": {
         "id": "8700",
         "episode": "4",
         "resolution": "480",
@@ -1300,7 +1443,7 @@ quality **string** – Качество, в котором стала досту
 ```json
 {
     "type": "encode_progress",
-    "encode_progress": {
+    "data": {
         "id": "8700",
         "episode": "4",
         "resolution": "480",
@@ -1340,10 +1483,10 @@ episode **string** – Номер вышедшего или перезалито
 ```json
 {
     "type": "torrent_update",
-    "torrent_update": {
+    "data": {
         "id": "9215",
         "torrents": {
-            "series": {
+            "episodes": {
                 "first": 1,
                 "last": 1,
                 "string": "1-1"
@@ -1351,7 +1494,7 @@ episode **string** – Номер вышедшего или перезалито
             "list": [
                 {
                     "torrent_id": 19973,
-                    "series": {
+                    "episodes": {
                         "first": 1,
                         "last": 1,
                         "string": "1"
@@ -1390,8 +1533,7 @@ episode **string** – Номер вышедшего или перезалито
                     "hash": "f3d72484bdc41265bd025dbbb24ea8bcb63a1abf"
                 }
             }
-        },
-        "hash": "81f7dbc27a1a445105b90c3096e3168008f2886e"
+        }
     }
 }
 ```
@@ -1402,7 +1544,6 @@ id **string** – ID обновленного тайтла.
 [torrents](#torrents) **object** – Информация о торрент файлах.  
 updated_torrent_id **int** - ID обновлённого торрента.  
 diff **object** – Объект, содержащий информацию о том, какие данные были изменены, добавлены или удалены.  
-hash **string** – Хеш уведомления, для проверки уникальности уведомления.
 
 ### Подписка на уведомления
 
@@ -1411,7 +1552,7 @@ hash **string** – Хеш уведомления, для проверки ун�
 ```json
 {
     "subscribe": {
-        "title_update": {
+        "data": {
             "title": {
                 "season": {
                     "year": 2022
@@ -1440,7 +1581,7 @@ hash **string** – Хеш уведомления, для проверки ун�
 ```json
 {
     "subscribe": {
-        "title_update": {
+        "data": {
             "title": {
                 "player": {
                     "playlist": {
@@ -1462,7 +1603,7 @@ hash **string** – Хеш уведомления, для проверки ун�
 ```json
 {
     "subscribe": {
-        "title_update": {
+        "data": {
             "title": {
                 "season": {
                     "year": 2022
