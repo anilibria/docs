@@ -9,9 +9,6 @@
 - [**RestAPI**](#restapi) – *Документация по RestAPI*
 - [**WebSocket**](#websocket) – *Документация по WebSocket*
 
-- [**RestAPI**](#restapi) – *Документация по RestAPI*
-- [**WebSocket**](#websocket) – *Документация по WebSocket*
-
 ## RestAPI
 ```
 http(s)://api.anilibria.tv/v2/
@@ -22,8 +19,6 @@ http(s)://api.anilibria.tv/v2/
 ## Открытые методы
 - [**getTitle**](#-gettitle) – *Получить информацию о тайтле*
 - [**getTitles**](#-gettitles) – *Получить информацию о нескольких тайтлах сразу*
-- [**getUpdates**](#-getupdates) – *Список тайтлов, отсортированные по времени добавления нового релиза*
-- [**getChanges**](#-getchanges) – *Список тайтлов, отсортированные по времени изменения*
 - [**getUpdates**](#-getupdates) – *Список тайтлов, отсортированные по времени добавления нового релиза*
 - [**getChanges**](#-getchanges) – *Список тайтлов, отсортированные по времени изменения*
 - [**getSchedule**](#-getschedule) – *Расписание выхода тайтлов, отсортированное по дням недели*
