@@ -82,6 +82,8 @@ mail, passwd
 Ответ: Тело не важно
 В хедере будет кука PHPSESSID - её нужно сохранить и использовать в следующих запросах
 ```
+Примечаня:
+* URL релиза - `<host>/release/ + code + .html` (пример: `https://www.anilibria.tv/release/sakurako-san-no-ashimoto-ni-wa-shitai-ga-umatteiru.html`)
 
 ##### Разлогиниться
 URL
